@@ -1,0 +1,7 @@
+verilog xil_defaultlib  \
+"../../../../number_recognize.srcs/sources_1/ip/Driver_IIC_0/sim/Driver_IIC.v" \
+"../../../../number_recognize.srcs/sources_1/ip/Driver_IIC_0/sim/Driver_IIC_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

@@ -1,0 +1,1094 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Oct 31 10:52:00 2020
+# Process ID: 11604
+# Current directory: D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1
+# Command line: vivado.exe -log Driver_MIPI_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Driver_MIPI_0.tcl
+# Log file: D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/Driver_MIPI_0.vds
+# Journal file: D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source Driver_MIPI_0.tcl -notrace
+Command: synth_design -top Driver_MIPI_0 -part xc7s15ftgb196-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s15'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s15'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 17848 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 447.688 ; gain = 103.789
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Driver_MIPI_0' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/synth/Driver_MIPI_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'Driver_MIPI' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_MIPI.v:23]
+INFO: [Synth 8-638] synthesizing module 'csi2_d_phy_rx_0' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/synth/csi2_d_phy_rx_0.vhd:94]
+	Parameter C_NUM_LANES bound to: 2 - type: integer 
+	Parameter C_NUM_LP_LANES bound to: 1 - type: integer 
+	Parameter C_D0_SWAP bound to: 0 - type: bool 
+	Parameter C_D1_SWAP bound to: 0 - type: bool 
+	Parameter C_D2_SWAP bound to: 0 - type: bool 
+	Parameter C_D3_SWAP bound to: 0 - type: bool 
+	Parameter C_DIFF_TERM bound to: 0 - type: bool 
+	Parameter C_ADD_IDELAYCTRL bound to: 1 - type: bool 
+	Parameter C_IODELAY_GROUP bound to: csi_dly_grp - type: string 
+	Parameter C_USE_DELAY bound to: 1 - type: bool 
+	Parameter C_CALIB_WAIT bound to: 8191 - type: integer 
+	Parameter C_RATE_LIMIT bound to: 50 - type: integer 
+INFO: [Synth 8-3491] module 'csi2_d_phy_rx' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:11' bound to instance 'U0' of component 'csi2_d_phy_rx' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/synth/csi2_d_phy_rx_0.vhd:184]
+INFO: [Synth 8-638] synthesizing module 'csi2_d_phy_rx' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:67]
+	Parameter C_NUM_LANES bound to: 2 - type: integer 
+	Parameter C_NUM_LP_LANES bound to: 1 - type: integer 
+	Parameter C_D0_SWAP bound to: 0 - type: bool 
+	Parameter C_D1_SWAP bound to: 0 - type: bool 
+	Parameter C_D2_SWAP bound to: 0 - type: bool 
+	Parameter C_D3_SWAP bound to: 0 - type: bool 
+	Parameter C_USE_DELAY bound to: 1 - type: bool 
+	Parameter C_DIFF_TERM bound to: 0 - type: bool 
+	Parameter C_ADD_IDELAYCTRL bound to: 1 - type: bool 
+	Parameter C_IODELAY_GROUP bound to: csi_dly_grp - type: string 
+	Parameter C_CALIB_WAIT bound to: 8191 - type: integer 
+	Parameter C_RATE_LIMIT bound to: 50 - type: integer 
+	Parameter SIM_DEVICE bound to: 7SERIES - type: string 
+INFO: [Synth 8-113] binding component instance 'IdlyCtrl_inst_0' to cell 'IDELAYCTRL' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:131]
+	Parameter C_USE_DELAY bound to: 1 - type: bool 
+	Parameter C_DIFF_TERM bound to: 0 - type: bool 
+	Parameter C_IODELAY_GROUP bound to: csi_dly_grp - type: string 
+	Parameter C_CALIB_WAIT bound to: 8191 - type: integer 
+	Parameter C_ACC_LIMIT bound to: 1000000 - type: integer 
+	Parameter C_RATE_LIMIT bound to: 50 - type: integer 
+INFO: [Synth 8-3491] module 'phy_clock_system' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:11' bound to instance 'clock_system_inst' of component 'phy_clock_system' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:146]
+INFO: [Synth 8-638] synthesizing module 'phy_clock_system' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:37]
+	Parameter C_USE_DELAY bound to: 1 - type: bool 
+	Parameter C_DIFF_TERM bound to: 0 - type: bool 
+	Parameter C_IDELAY_TYPE bound to: FIXED - type: string 
+	Parameter C_IODELAY_GROUP bound to: csi_dly_grp - type: string 
+	Parameter C_ACC_LIMIT bound to: 1000000 - type: integer 
+	Parameter C_RATE_LIMIT bound to: 50 - type: integer 
+	Parameter C_CALIB_WAIT bound to: 8191 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:63]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:64]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:65]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:66]
+INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:67]
+	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
+	Parameter DIFF_TERM bound to: 0 - type: bool 
+	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
+	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+INFO: [Synth 8-113] binding component instance 'clk_ibufgds_inst' to cell 'IBUFGDS' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:84]
+	Parameter CINVCTRL_SEL bound to: FALSE - type: string 
+	Parameter DELAY_SRC bound to: IDATAIN - type: string 
+	Parameter HIGH_PERFORMANCE_MODE bound to: TRUE - type: string 
+	Parameter IDELAY_TYPE bound to: VAR_LOAD - type: string 
+	Parameter IDELAY_VALUE bound to: 0 - type: integer 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_DATAIN_INVERTED bound to: 1'b0 
+	Parameter IS_IDATAIN_INVERTED bound to: 1'b0 
+	Parameter PIPE_SEL bound to: FALSE - type: string 
+	Parameter REFCLK_FREQUENCY bound to: 200.000000 - type: float 
+	Parameter SIGNAL_PATTERN bound to: CLOCK - type: string 
+INFO: [Synth 8-113] binding component instance 'IDELAYE2_inst' to cell 'IDELAYE2' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:108]
+	Parameter INIT_OUT bound to: 0 - type: integer 
+	Parameter IS_CE0_INVERTED bound to: 1'b0 
+	Parameter IS_CE1_INVERTED bound to: 1'b0 
+	Parameter IS_I0_INVERTED bound to: 1'b0 
+	Parameter IS_I1_INVERTED bound to: 1'b0 
+	Parameter IS_IGNORE0_INVERTED bound to: 1'b0 
+	Parameter IS_IGNORE1_INVERTED bound to: 1'b0 
+	Parameter IS_S0_INVERTED bound to: 1'b0 
+	Parameter IS_S1_INVERTED bound to: 1'b0 
+	Parameter PRESELECT_I0 bound to: 0 - type: bool 
+	Parameter PRESELECT_I1 bound to: 0 - type: bool 
+INFO: [Synth 8-113] binding component instance 'BUFGCTRL_inst' to cell 'BUFGCTRL' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:136]
+	Parameter CE_TYPE bound to: ASYNC - type: string 
+	Parameter INIT_OUT bound to: 0 - type: integer 
+	Parameter IS_CE_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'BUFMRCE_inst' to cell 'BUFMRCE' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:278]
+INFO: [Synth 8-113] binding component instance 'BUFIO_inst' to cell 'BUFIO' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:289]
+	Parameter BUFR_DIVIDE bound to: 4 - type: string 
+	Parameter SIM_DEVICE bound to: 7SERIES - type: string 
+INFO: [Synth 8-113] binding component instance 'BUFR_inst' to cell 'BUFR' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:297]
+INFO: [Synth 8-113] binding component instance 'usr_BUFG_inst' to cell 'BUFG' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:310]
+INFO: [Synth 8-256] done synthesizing module 'phy_clock_system' (1#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:37]
+	Parameter C_DIFF_TERM bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'line_if' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/line_if.vhd:11' bound to instance 'line_if_inst' of component 'line_if' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'line_if' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/line_if.vhd:25]
+	Parameter C_DIFF_TERM bound to: 0 - type: bool 
+	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
+	Parameter DIFF_TERM bound to: 0 - type: bool 
+	Parameter DQS_BIAS bound to: FALSE - type: string 
+	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
+	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
+	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+INFO: [Synth 8-113] binding component instance 'd_ibufds_inst' to cell 'IBUFDS' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/line_if.vhd:33]
+	Parameter DATA_RATE bound to: DDR - type: string 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DYN_CLKDIV_INV_EN bound to: FALSE - type: string 
+	Parameter DYN_CLK_INV_EN bound to: FALSE - type: string 
+	Parameter INIT_Q1 bound to: 1'b0 
+	Parameter INIT_Q2 bound to: 1'b0 
+	Parameter INIT_Q3 bound to: 1'b0 
+	Parameter INIT_Q4 bound to: 1'b0 
+	Parameter INTERFACE_TYPE bound to: NETWORKING - type: string 
+	Parameter IOBDELAY bound to: NONE - type: string 
+	Parameter IS_CLKB_INVERTED bound to: 1'b0 
+	Parameter IS_CLKDIVP_INVERTED bound to: 1'b0 
+	Parameter IS_CLKDIV_INVERTED bound to: 1'b0 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_OCLKB_INVERTED bound to: 1'b0 
+	Parameter IS_OCLK_INVERTED bound to: 1'b0 
+	Parameter NUM_CE bound to: 2 - type: integer 
+	Parameter OFB_USED bound to: FALSE - type: string 
+	Parameter SERDES_MODE bound to: MASTER - type: string 
+	Parameter SRVAL_Q1 bound to: 1'b0 
+	Parameter SRVAL_Q2 bound to: 1'b0 
+	Parameter SRVAL_Q3 bound to: 1'b0 
+	Parameter SRVAL_Q4 bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'ISERDESE2_inst' to cell 'ISERDESE2' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/line_if.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'line_if' (2#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/line_if.vhd:25]
+	Parameter C_DIFF_TERM bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'line_if' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/line_if.vhd:11' bound to instance 'line_if_inst' of component 'line_if' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:169]
+INFO: [Synth 8-4471] merging register 'dl0_rxactivehs_reg' into 'dl0_rxvalidhs_reg' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:243]
+INFO: [Synth 8-4471] merging register 'lane_1_gen.dl1_rxactivehs_reg' into 'lane_1_gen.dl1_rxvalidhs_reg' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:255]
+WARNING: [Synth 8-6014] Unused sequential element dl0_rxactivehs_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:243]
+WARNING: [Synth 8-6014] Unused sequential element lane_1_gen.dl1_rxactivehs_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:255]
+WARNING: [Synth 8-3848] Net trig_ack in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:38]
+WARNING: [Synth 8-3848] Net dl2_rxactivehs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:55]
+WARNING: [Synth 8-3848] Net dl2_rxvalidhs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:56]
+WARNING: [Synth 8-3848] Net dl2_rxsynchs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:57]
+WARNING: [Synth 8-3848] Net dl2_datahs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:58]
+WARNING: [Synth 8-3848] Net dl3_rxactivehs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:60]
+WARNING: [Synth 8-3848] Net dl3_rxvalidhs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:61]
+WARNING: [Synth 8-3848] Net dl3_rxsynchs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:62]
+WARNING: [Synth 8-3848] Net dl3_datahs in module/entity csi2_d_phy_rx does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:63]
+INFO: [Synth 8-256] done synthesizing module 'csi2_d_phy_rx' (3#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'csi2_d_phy_rx_0' (4#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/synth/csi2_d_phy_rx_0.vhd:94]
+WARNING: [Synth 8-350] instance 'Data_Read' of module 'csi2_d_phy_rx_0' requires 33 connections, but only 25 given [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_MIPI.v:72]
+INFO: [Synth 8-638] synthesizing module 'csi_to_axis_0' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/synth/csi_to_axis_0.vhd:85]
+	Parameter C_M_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_LANES bound to: 2 - type: integer 
+	Parameter C_TIMEOUT bound to: 255 - type: integer 
+INFO: [Synth 8-3491] module 'csi_to_axis_v1_0' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:11' bound to instance 'U0' of component 'csi_to_axis_v1_0' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/synth/csi_to_axis_0.vhd:165]
+INFO: [Synth 8-638] synthesizing module 'csi_to_axis_v1_0' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:78]
+	Parameter C_M_AXIS_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_LANES bound to: 2 - type: integer 
+	Parameter C_TIMEOUT bound to: 255 - type: integer 
+	Parameter C_LANES bound to: 2 - type: integer 
+	Parameter C_TIMEOUT bound to: 255 - type: integer 
+INFO: [Synth 8-3491] module 'lane_align' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_align.vhd:9' bound to instance 'lane_align_inst' of component 'lane_align' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:191]
+INFO: [Synth 8-638] synthesizing module 'lane_align' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_align.vhd:26]
+	Parameter C_LANES bound to: 2 - type: integer 
+	Parameter C_TIMEOUT bound to: 255 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_align.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'lane_align' (5#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_align.vhd:26]
+	Parameter C_LANES bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'lane_merge' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_merge.vhd:9' bound to instance 'lane_merge_inst' of component 'lane_merge' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:207]
+INFO: [Synth 8-638] synthesizing module 'lane_merge' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_merge.vhd:24]
+	Parameter C_LANES bound to: 2 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element valid_dl_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_merge.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'lane_merge' (6#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/lane_merge.vhd:24]
+	Parameter C_LANES bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'csi2_parser' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:9' bound to instance 'parser_inst' of component 'csi2_parser' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:223]
+INFO: [Synth 8-638] synthesizing module 'csi2_parser' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:33]
+	Parameter C_LANES bound to: 2 - type: integer 
+WARNING: [Synth 8-614] signal 's_axis_tvalid' is read in the process but is not in the sensitivity list [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:135]
+WARNING: [Synth 8-614] signal 's_axis_tdata' is read in the process but is not in the sensitivity list [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:135]
+WARNING: [Synth 8-6014] Unused sequential element packet_cs_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:92]
+INFO: [Synth 8-256] done synthesizing module 'csi2_parser' (7#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:33]
+WARNING: [Synth 8-3848] Net dl2_enable in module/entity csi_to_axis_v1_0 does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:35]
+WARNING: [Synth 8-3848] Net dl3_enable in module/entity csi_to_axis_v1_0 does not have driver. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'csi_to_axis_v1_0' (8#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis_v1_0.vhd:78]
+INFO: [Synth 8-256] done synthesizing module 'csi_to_axis_0' (9#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/synth/csi_to_axis_0.vhd:85]
+INFO: [Synth 8-6157] synthesizing module 'Driver_Csi_To_Dvp' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Csi_To_Dvp.v:23]
+	Parameter WIDTH bound to: 12 - type: integer 
+	Parameter HSIZE bound to: 1280 - type: integer 
+	Parameter HFP bound to: 1390 - type: integer 
+	Parameter HSP bound to: 1430 - type: integer 
+	Parameter HMAX bound to: 1650 - type: integer 
+	Parameter VSIZE bound to: 720 - type: integer 
+	Parameter VFP bound to: 725 - type: integer 
+	Parameter VSP bound to: 730 - type: integer 
+	Parameter VMAX bound to: 750 - type: integer 
+	Parameter HSPP bound to: 0 - type: integer 
+	Parameter VSPP bound to: 0 - type: integer 
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Csi_To_Dvp.v:106]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:71]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
+	Parameter C_INIT_FILE bound to: blk_mem_gen_0.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 800 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 800 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1600 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1600 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 11 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 1 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.5052 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_1' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195313' bound to instance 'U0' of component 'blk_mem_gen_v8_4_1' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:237]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (18#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:71]
+INFO: [Synth 8-6155] done synthesizing module 'Driver_Csi_To_Dvp' (19#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Csi_To_Dvp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Driver_Bayer_To_RGB' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Bayer_To_RGB.v:23]
+	Parameter WIDTH bound to: 12 - type: integer 
+	Parameter HSIZE bound to: 1280 - type: integer 
+	Parameter HFP bound to: 1390 - type: integer 
+	Parameter HSP bound to: 1430 - type: integer 
+	Parameter HMAX bound to: 1650 - type: integer 
+	Parameter VSIZE bound to: 720 - type: integer 
+	Parameter VFP bound to: 725 - type: integer 
+	Parameter VSP bound to: 730 - type: integer 
+	Parameter VMAX bound to: 750 - type: integer 
+	Parameter HSPP bound to: 0 - type: integer 
+	Parameter VSPP bound to: 0 - type: integer 
+	Parameter IDLE bound to: 0 - type: integer 
+	Parameter IDLE_BG bound to: 1 - type: integer 
+	Parameter PATTERN0 bound to: 2 - type: integer 
+	Parameter PATTERN1 bound to: 3 - type: integer 
+	Parameter IDLE_GR bound to: 4 - type: integer 
+	Parameter PATTERN2 bound to: 5 - type: integer 
+	Parameter PATTERN3 bound to: 6 - type: integer 
+	Parameter DELAY_LINE bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_1' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_1/synth/blk_mem_gen_1.vhd:71]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
+	Parameter C_INIT_FILE bound to: blk_mem_gen_1.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1280 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1280 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 11 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1280 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1280 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 11 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 1 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.5592 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_1' declared at 'd:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195313' bound to instance 'U0' of component 'blk_mem_gen_v8_4_1' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_1/synth/blk_mem_gen_1.vhd:237]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_1' (20#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/blk_mem_gen_1/synth/blk_mem_gen_1.vhd:71]
+WARNING: [Synth 8-6014] Unused sequential element col_cnt_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Bayer_To_RGB.v:214]
+WARNING: [Synth 8-3936] Found unconnected internal register 'de_delay_r_reg' and it is trimmed from '8' to '7' bits. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Bayer_To_RGB.v:287]
+WARNING: [Synth 8-3936] Found unconnected internal register 'hsync_delay_r_reg' and it is trimmed from '8' to '7' bits. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Bayer_To_RGB.v:285]
+WARNING: [Synth 8-3936] Found unconnected internal register 'vsync_delay_r_reg' and it is trimmed from '8' to '7' bits. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Bayer_To_RGB.v:286]
+INFO: [Synth 8-6155] done synthesizing module 'Driver_Bayer_To_RGB' (21#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Bayer_To_RGB.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Driver_MIPI' (22#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_MIPI.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Driver_MIPI_0' (23#1) [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/synth/Driver_MIPI_0.v:58]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port DINB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port SLEEP
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper__parameterized0 has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port REGCEA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port RSTB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTA_I[0]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[10]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[7]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[6]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[5]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[4]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[3]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[2]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[1]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AClk
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_ARESETN
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWID[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWID[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWID[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWID[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[31]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[30]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[29]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[28]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[27]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[26]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[25]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[24]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[23]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[22]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[21]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[20]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[19]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[18]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[17]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[16]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWADDR[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWLEN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_1_synth__parameterized0 has unconnected port S_AXI_AWLEN[6]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 786.949 ; gain = 443.051
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:51 ; elapsed = 00:01:56 . Memory (MB): peak = 786.949 ; gain = 443.051
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:51 ; elapsed = 00:01:56 . Memory (MB): peak = 786.949 ; gain = 443.051
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7s15ftgb196-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis.xdc] for cell 'inst/Data_To_Csi/U0'
+Finished Parsing XDC File [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi_to_axis.xdc] for cell 'inst/Data_To_Csi/U0'
+Parsing XDC File [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.xdc] for cell 'inst/Data_Read/U0'
+Finished Parsing XDC File [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.xdc] for cell 'inst/Data_Read/U0'
+Parsing XDC File [D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Driver_MIPI_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Driver_MIPI_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+WARNING: [Constraints 18-5210] No constraint will be written out.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  IBUFGDS => IBUFDS: 1 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.099 . Memory (MB): peak = 810.508 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:02:01 ; elapsed = 00:02:08 . Memory (MB): peak = 810.508 ; gain = 466.609
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s15ftgb196-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:01 ; elapsed = 00:02:08 . Memory (MB): peak = 810.508 ; gain = 466.609
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst/Data_To_Csi. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst/Data_Read. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst/Driver_Csi_To_Dvp0/bram0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst/Driver_Bayer_To_RGB0/bram0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst/Driver_Bayer_To_RGB0/bram1. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst/Driver_Bayer_To_RGB0/bram2. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst/Data_To_Csi/U0. (constraint file  D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/dont_touch.xdc, line 20).
+Applied set_property DONT_TOUCH = true for inst/Data_Read/U0. (constraint file  D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/dont_touch.xdc, line 23).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:01 ; elapsed = 00:02:08 . Memory (MB): peak = 810.508 ; gain = 466.609
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'dly_gen.sm_state_reg' in module 'phy_clock_system'
+INFO: [Synth 8-5546] ROM "err_rate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "acc_val" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "sm_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "wait_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "sum_dly" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sm_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sm_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'with_lp_gen.ext_lp_gen.raw_valid_reg[1:1]' into 'with_lp_gen.raw_valid_reg[0:0]' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:212]
+INFO: [Synth 8-5546] ROM "data_shift_det[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sot_found" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "data_shift_det[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sot_found" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "sm_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "align_vec" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "align_vec" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'sm_state_reg' in module 'csi2_parser'
+INFO: [Synth 8-5546] ROM "packet_id_upd" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "transfer_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "start_of_frame" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "sm_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sm_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sm_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "sm_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "vdata" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "unpack_cnt" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3936] Found unconnected internal register 'de_delay_r_reg' and it is trimmed from '7' to '6' bits. [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/Driver_Bayer_To_RGB.v:287]
+INFO: [Synth 8-802] inferred FSM for state register 'read_state_reg' in module 'Driver_Bayer_To_RGB'
+INFO: [Synth 8-5544] ROM "color_r" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                st_check |                              000 |                              000
+            st_good_wait |                              001 |                              010
+            st_find_good |                              010 |                              001
+             st_find_bad |                              011 |                              011
+             st_calk_dly |                              100 |                              101
+              st_set_dly |                              101 |                              110
+             st_set_wait |                              110 |                              111
+             st_bad_wait |                              111 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'dly_gen.sm_state_reg' using encoding 'sequential' in module 'phy_clock_system'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 st_idle |                              000 |                              000
+                 st_hdra |                              001 |                              001
+                 st_hdrb |                              010 |                              010
+             st_transfer |                              011 |                              011
+               st_resync |                              100 |                              100
+                  iSTATE |                              101 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'sm_state_reg' using encoding 'sequential' in module 'csi2_parser'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+                 IDLE_BG |                              001 |                             0001
+                PATTERN0 |                              010 |                             0010
+                PATTERN1 |                              011 |                             0011
+                 IDLE_GR |                              100 |                             0100
+                PATTERN2 |                              101 |                             0101
+                PATTERN3 |                              110 |                             0110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'read_state_reg' using encoding 'sequential' in module 'Driver_Bayer_To_RGB'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:02 ; elapsed = 00:02:10 . Memory (MB): peak = 810.508 ; gain = 466.609
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     20 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 2     
+	   2 Input     13 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 4     
+	   4 Input     10 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 2     
+	               20 Bit    Registers := 2     
+	               16 Bit    Registers := 8     
+	               13 Bit    Registers := 1     
+	               11 Bit    Registers := 3     
+	               10 Bit    Registers := 5     
+	                8 Bit    Registers := 17    
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 49    
++---Muxes : 
+	   2 Input     20 Bit        Muxes := 1     
+	   6 Input     16 Bit        Muxes := 2     
+	   8 Input     13 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	   7 Input     10 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 6     
+	   2 Input      5 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	   9 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 17    
+	   5 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   7 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 26    
+	   8 Input      1 Bit        Muxes := 10    
+	  10 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 5     
+	   6 Input      1 Bit        Muxes := 15    
+	   7 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module phy_clock_system 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     20 Bit       Adders := 1     
+	   2 Input     13 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               20 Bit    Registers := 2     
+	               13 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 3     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   2 Input     20 Bit        Muxes := 1     
+	   8 Input     13 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 4     
+	   8 Input      1 Bit        Muxes := 9     
+Module csi2_d_phy_rx 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                1 Bit    Registers := 11    
+Module lane_align 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               24 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   9 Input      4 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+	   8 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 1     
+Module lane_merge 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   7 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 5     
+Module csi2_parser 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 2     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                8 Bit    Registers := 2     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   6 Input     16 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 7     
+	   6 Input      1 Bit        Muxes := 15    
+Module Driver_Csi_To_Dvp 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 2     
+	               10 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module Driver_Bayer_To_RGB 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
+	   4 Input     10 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 2     
++---Registers : 
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 3     
+	                8 Bit    Registers := 11    
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 12    
++---Muxes : 
+	   7 Input     10 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 4     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 2     
+	   7 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 20 (col length:20)
+BRAMs: 20 (col length: RAMB18 20 RAMB36 10)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'with_lp_gen.ext_lp_gen.prev_raw_valid_reg[1:1]' into 'with_lp_gen.prev_raw_valid_reg[0:0]' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:213]
+INFO: [Synth 8-4471] merging register 'lane_1_gen.dl1_rxvalidhs_reg' into 'dl0_rxvalidhs_reg' [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:254]
+WARNING: [Synth 8-6014] Unused sequential element clock_system_inst/dly_gen.clock_upd_ack_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/phy_clock_system.vhd:158]
+WARNING: [Synth 8-6014] Unused sequential element lane_1_gen.dl1_rxvalidhs_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi2_d_phy_rx_0/hdl/csi2_d_phy_rx.vhd:254]
+INFO: [Synth 8-5546] ROM "clock_system_inst/err_rate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "clock_system_inst/wait_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "clock_system_inst/sm_state" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element parser_inst/start_of_line_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:97]
+WARNING: [Synth 8-6014] Unused sequential element parser_inst/packet_id_dbg_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:100]
+WARNING: [Synth 8-6014] Unused sequential element parser_inst/packet_id_upd_reg was removed.  [d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/src/csi_to_axis_0/hdl/csi2_parser.vhd:64]
+INFO: [Synth 8-5546] ROM "lane_align_inst/sot_found" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "lane_merge_inst/align_vec" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "lane_merge_inst/align_vec" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "parser_inst/packet_id_upd" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "parser_inst/transfer_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "parser_inst/start_of_frame" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "inst/Driver_Csi_To_Dvp0/vdata" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "inst/Driver_Csi_To_Dvp0/unpack_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3917] design Driver_MIPI_0 has port Camera_GPIO driven by constant 1
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/hsync_delay_r_reg[6]) is unused and will be removed from module Driver_MIPI_0.
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/vsync_delay_r_reg[6]) is unused and will be removed from module Driver_MIPI_0.
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/color_g_reg[1]) is unused and will be removed from module Driver_MIPI_0.
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/color_g_reg[0]) is unused and will be removed from module Driver_MIPI_0.
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/color_b_reg[1]) is unused and will be removed from module Driver_MIPI_0.
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/color_b_reg[0]) is unused and will be removed from module Driver_MIPI_0.
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/color_r_reg[1]) is unused and will be removed from module Driver_MIPI_0.
+INFO: [Synth 8-3332] Sequential element (inst/Driver_Bayer_To_RGB0/color_r_reg[0]) is unused and will be removed from module Driver_MIPI_0.
+WARNING: [Synth 8-3332] Sequential element (clock_system_inst/dly_gen.sum_dly_reg[0]) is unused and will be removed from module csi2_d_phy_rx.
+INFO: [Synth 8-3886] merging instance 'inst/Data_Read/U0/with_lp_gen.ext_lp_gen.line_raw_sync_reg[1]' (FD) to 'inst/Data_Read/U0/with_lp_gen.line_raw_sync_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/Data_Read/U0/lane_1_gen.dl1_rxsynchs_reg' (FD) to 'inst/Data_Read/U0/dl0_rxsynchs_reg'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:06 ; elapsed = 00:02:14 . Memory (MB): peak = 810.508 ; gain = 466.609
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:15 ; elapsed = 00:02:23 . Memory (MB): peak = 810.508 ; gain = 466.609
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 810.508 ; gain = 466.609
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3295] tying undriven pin lane_align_inst/err_ack_i_inferred:in0 to constant 0
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++--------------+------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name   | RTL Name                                       | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++--------------+------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Driver_MIPI_0 | inst/Driver_Bayer_To_RGB0/hsync_delay_r_reg[5] | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|Driver_MIPI_0 | inst/Driver_Bayer_To_RGB0/vsync_delay_r_reg[5] | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|Driver_MIPI_0 | inst/Driver_Bayer_To_RGB0/de_delay_r_reg[5]    | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|Driver_MIPI_0 | inst/Driver_Bayer_To_RGB0/de_pos_r2_reg        | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|Driver_MIPI_0 | inst/Driver_Bayer_To_RGB0/line2_reg[0][7]      | 3      | 8     | NO           | NO                 | YES               | 8      | 0       | 
++--------------+------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     1|
+|2     |BUFGCTRL   |     1|
+|3     |BUFIO      |     1|
+|4     |BUFMRCE    |     1|
+|5     |BUFR       |     1|
+|6     |CARRY4     |    43|
+|7     |IDELAYCTRL |     1|
+|8     |IDELAYE2   |     1|
+|9     |ISERDESE2  |     2|
+|10    |LUT1       |    40|
+|11    |LUT2       |    87|
+|12    |LUT3       |    91|
+|13    |LUT4       |    91|
+|14    |LUT5       |   102|
+|15    |LUT6       |   148|
+|16    |RAMB18E1   |     1|
+|17    |RAMB18E1_1 |     3|
+|18    |SRL16E     |    12|
+|19    |FDRE       |   522|
+|20    |FDSE       |    13|
+|21    |IBUFDS     |     2|
+|22    |IBUFGDS    |     1|
++------+-----------+------+
+
+Report Instance Areas: 
++------+---------------------------------------------------+-------------------------------------------+------+
+|      |Instance                                           |Module                                     |Cells |
++------+---------------------------------------------------+-------------------------------------------+------+
+|1     |top                                                |                                           |  1165|
+|2     |  inst                                             |Driver_MIPI                                |  1165|
+|3     |    Data_Read                                      |csi2_d_phy_rx_0                            |   263|
+|4     |      U0                                           |csi2_d_phy_rx                              |   263|
+|5     |        \bits_gen[0].line_if_inst                  |line_if                                    |     2|
+|6     |        \bits_gen[1].line_if_inst                  |line_if_10                                 |     2|
+|7     |        clock_system_inst                          |phy_clock_system                           |   216|
+|8     |    Data_To_Csi                                    |csi_to_axis_0                              |   480|
+|9     |      U0                                           |csi_to_axis_v1_0                           |   480|
+|10    |        lane_align_inst                            |lane_align                                 |   283|
+|11    |        lane_merge_inst                            |lane_merge                                 |    70|
+|12    |        parser_inst                                |csi2_parser                                |   127|
+|13    |    Driver_Bayer_To_RGB0                           |Driver_Bayer_To_RGB                        |   295|
+|14    |      bram0                                        |blk_mem_gen_1__1                           |     1|
+|15    |        U0                                         |blk_mem_gen_v8_4_1__parameterized1__1      |     1|
+|16    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth__parameterized0_5 |     1|
+|17    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0_6          |     1|
+|18    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0_7 |     1|
+|19    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized0_8   |     1|
+|20    |                  \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0_9 |     1|
+|21    |      bram1                                        |blk_mem_gen_1__2                           |     1|
+|22    |        U0                                         |blk_mem_gen_v8_4_1__parameterized1__2      |     1|
+|23    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth__parameterized0_0 |     1|
+|24    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0_1          |     1|
+|25    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0_2 |     1|
+|26    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized0_3   |     1|
+|27    |                  \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0_4 |     1|
+|28    |      bram2                                        |blk_mem_gen_1                              |     1|
+|29    |        U0                                         |blk_mem_gen_v8_4_1__parameterized1         |     1|
+|30    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth__parameterized0   |     1|
+|31    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0            |     1|
+|32    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0   |     1|
+|33    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized0     |     1|
+|34    |                  \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0   |     1|
+|35    |    Driver_Csi_To_Dvp0                             |Driver_Csi_To_Dvp                          |   127|
+|36    |      bram0                                        |blk_mem_gen_0                              |     1|
+|37    |        U0                                         |blk_mem_gen_v8_4_1                         |     1|
+|38    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth                   |     1|
+|39    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top                            |     1|
+|40    |              \valid.cstr                          |blk_mem_gen_generic_cstr                   |     1|
+|41    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width                     |     1|
+|42    |                  \prim_noinit.ram                 |blk_mem_gen_prim_wrapper                   |     1|
++------+---------------------------------------------------+-------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 353 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:02:16 . Memory (MB): peak = 833.180 ; gain = 465.723
+Synthesis Optimization Complete : Time (s): cpu = 00:02:16 ; elapsed = 00:02:25 . Memory (MB): peak = 833.180 ; gain = 489.281
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 2 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  IBUFGDS => IBUFDS: 1 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+135 Infos, 131 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:20 ; elapsed = 00:02:29 . Memory (MB): peak = 833.180 ; gain = 500.941
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/Driver_MIPI_0.dcp' has been generated.
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_MIPI_0/Driver_MIPI_0.xci
+INFO: [Coretcl 2-1174] Renamed 41 cell refs.
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/xilinix_lab/number_recognize/number_recognize.runs/Driver_MIPI_0_synth_1/Driver_MIPI_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Driver_MIPI_0_utilization_synth.rpt -pb Driver_MIPI_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 833.180 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 31 10:54:50 2020...
