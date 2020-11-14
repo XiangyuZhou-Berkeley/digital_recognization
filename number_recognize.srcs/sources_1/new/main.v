@@ -54,7 +54,7 @@ module main(
     wire [10:0]set_x;
     wire [9:0]set_y;
     //系统时钟
-    clk_wiz_0 clk_2(.clk_out1(clk_100MHz_system),.clk_out2(clk_200MHz),.clk_in1(i_clk));
+    clk_wiz_0 clk_10(.clk_out1(clk_100MHz_system),.clk_out2(clk_200MHz),.clk_in1(i_clk));
     //HDMI驱动
     rgb2dvi_0 Mini_HDMI_Driver(
        .TMDS_Clk_p(TMDS_Tx_Clk_P),     // output wire TMDS_Clk_p
@@ -140,4 +140,13 @@ module main(
          .o_sda_dir(camera_iic_sda_t),           //IIC数据线方向,1代表输出
          .o_iic_sda(camera_iic_sda_o)            //IIC数据线
          );
+ pre_recognize pre_recognize1(
+             .pclk(clk_pixel),
+             .Set_X(set_x),
+             .Set_Y(set_y),
+             .RGB_Raw(rgb_data_src),
+             .RGB_Data(rgb_data),
+             .LED(LED),
+             .RGB_LED(RGB_LED)
+             );        
 endmodule

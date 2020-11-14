@@ -1,4 +1,0 @@
-NumberHits:0
-Timestamp: Sat Oct 31 02:51:50 UTC 2020
-VLNV: xilinx.com:user:Driver_IIC:1.0
-SynthRuntime: 74

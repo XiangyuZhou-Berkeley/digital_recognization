@@ -64,8 +64,7 @@ rgb2dvi_0 your_instance_name (
   .vid_pVDE(vid_pVDE),        // input wire vid_pVDE
   .vid_pHSync(vid_pHSync),    // input wire vid_pHSync
   .vid_pVSync(vid_pVSync),    // input wire vid_pVSync
-  .PixelClk(PixelClk),        // input wire PixelClk
-  .SerialClk(SerialClk)      // input wire SerialClk
+  .PixelClk(PixelClk)        // input wire PixelClk
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

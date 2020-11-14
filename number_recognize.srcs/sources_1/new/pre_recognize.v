@@ -47,4 +47,19 @@ recognize recog1(
         .num(num),
         .digital(digital)
         );
+ Num_Display Num_Display1(
+            //.clk(pclk),
+            .num(digital),
+            .Set_X(Set_X),
+            .Set_Y(Set_Y),
+            //.RGB_Raw(RGB_Raw),
+            .Binary(Binary),
+            .RGB_Data(RGB_Data)
+            );
+ Rgb_Led Rgb_led1(
+             .clk_100MHz(pclk),
+             .num(num),
+             .LED(LED),
+             .RGB_LED(RGB_LED)
+             );
 endmodule

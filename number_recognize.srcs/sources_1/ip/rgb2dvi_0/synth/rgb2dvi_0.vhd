@@ -64,8 +64,7 @@ ENTITY rgb2dvi_0 IS
     vid_pVDE : IN STD_LOGIC;
     vid_pHSync : IN STD_LOGIC;
     vid_pVSync : IN STD_LOGIC;
-    PixelClk : IN STD_LOGIC;
-    SerialClk : IN STD_LOGIC
+    PixelClk : IN STD_LOGIC
   );
 END rgb2dvi_0;
 
@@ -95,20 +94,18 @@ ARCHITECTURE rgb2dvi_0_arch OF rgb2dvi_0 IS
     );
   END COMPONENT rgb2dvi;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF rgb2dvi_0_arch: ARCHITECTURE IS "rgb2dvi,Vivado 2018.2";
+  ATTRIBUTE X_CORE_INFO OF rgb2dvi_0_arch: ARCHITECTURE IS "rgb2dvi,Vivado 2018.3";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF rgb2dvi_0_arch : ARCHITECTURE IS "rgb2dvi_0,rgb2dvi,{}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF SerialClk: SIGNAL IS "XIL_INTERFACENAME SerialClk, ASSOCIATED_RESET aRst:aRst_n:pRst:pRst_n, FREQ_HZ 100000000, PHASE 0.000";
-  ATTRIBUTE X_INTERFACE_INFO OF SerialClk: SIGNAL IS "xilinx.com:signal:clock:1.0 SerialClk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF PixelClk: SIGNAL IS "XIL_INTERFACENAME PixelClk, FREQ_HZ 100000000, PHASE 0.000";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF PixelClk: SIGNAL IS "XIL_INTERFACENAME PixelClk, FREQ_HZ 100000000, PHASE 0.000, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF PixelClk: SIGNAL IS "xilinx.com:signal:clock:1.0 PixelClk CLK";
   ATTRIBUTE X_INTERFACE_INFO OF vid_pVSync: SIGNAL IS "xilinx.com:interface:vid_io:1.0 RGB VSYNC";
   ATTRIBUTE X_INTERFACE_INFO OF vid_pHSync: SIGNAL IS "xilinx.com:interface:vid_io:1.0 RGB HSYNC";
   ATTRIBUTE X_INTERFACE_INFO OF vid_pVDE: SIGNAL IS "xilinx.com:interface:vid_io:1.0 RGB ACTIVE_VIDEO";
   ATTRIBUTE X_INTERFACE_INFO OF vid_pData: SIGNAL IS "xilinx.com:interface:vid_io:1.0 RGB DATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF aRst_n: SIGNAL IS "XIL_INTERFACENAME AsyncRst_n, POLARITY ACTIVE_LOW";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF aRst_n: SIGNAL IS "XIL_INTERFACENAME AsyncRst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF aRst_n: SIGNAL IS "xilinx.com:signal:reset:1.0 AsyncRst_n RST";
   ATTRIBUTE X_INTERFACE_INFO OF TMDS_Data_n: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS DATA_N";
   ATTRIBUTE X_INTERFACE_INFO OF TMDS_Data_p: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS DATA_P";
@@ -118,8 +115,8 @@ ARCHITECTURE rgb2dvi_0_arch OF rgb2dvi_0 IS
 BEGIN
   U0 : rgb2dvi
     GENERIC MAP (
-      kGenerateSerialClk => false,
-      kClkPrimitive => "MMCM",
+      kGenerateSerialClk => true,
+      kClkPrimitive => "PLL",
       kRstActiveHigh => false,
       kClkRange => 1
     )
@@ -135,6 +132,6 @@ BEGIN
       vid_pHSync => vid_pHSync,
       vid_pVSync => vid_pVSync,
       PixelClk => PixelClk,
-      SerialClk => SerialClk
+      SerialClk => '0'
     );
 END rgb2dvi_0_arch;

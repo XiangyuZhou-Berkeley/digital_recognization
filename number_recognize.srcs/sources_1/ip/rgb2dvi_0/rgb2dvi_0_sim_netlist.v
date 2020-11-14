@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat Oct 31 10:51:04 2020
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Sat Nov 14 10:13:42 2020
 // Host        : LAPTOP-L9GKEMTI running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/rgb2dvi_0/rgb2dvi_0_sim_netlist.v
+//               D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/rgb2dvi_0/rgb2dvi_0_sim_netlist.v
 // Design      : rgb2dvi_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "rgb2dvi_0,rgb2dvi,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "rgb2dvi,Vivado 2018.2" *) 
+(* CHECK_LICENSE_TYPE = "rgb2dvi_0,rgb2dvi,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "rgb2dvi,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module rgb2dvi_0
    (TMDS_Clk_p,
@@ -24,22 +24,19 @@ module rgb2dvi_0
     vid_pVDE,
     vid_pHSync,
     vid_pVSync,
-    PixelClk,
-    SerialClk);
+    PixelClk);
   (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_P" *) (* x_interface_parameter = "XIL_INTERFACENAME TMDS, BOARD.ASSOCIATED_PARAM TMDS_BOARD_INTERFACE" *) output TMDS_Clk_p;
   (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_N" *) output TMDS_Clk_n;
   (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_P" *) output [2:0]TMDS_Data_p;
   (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_N" *) output [2:0]TMDS_Data_n;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 AsyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME AsyncRst_n, POLARITY ACTIVE_LOW" *) input aRst_n;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 AsyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME AsyncRst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input aRst_n;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB DATA" *) input [23:0]vid_pData;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB ACTIVE_VIDEO" *) input vid_pVDE;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB HSYNC" *) input vid_pHSync;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB VSYNC" *) input vid_pVSync;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 PixelClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME PixelClk, FREQ_HZ 100000000, PHASE 0.000" *) input PixelClk;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 SerialClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME SerialClk, ASSOCIATED_RESET aRst:aRst_n:pRst:pRst_n, FREQ_HZ 100000000, PHASE 0.000" *) input SerialClk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 PixelClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME PixelClk, FREQ_HZ 100000000, PHASE 0.000, INSERT_VIP 0" *) input PixelClk;
 
   wire PixelClk;
-  wire SerialClk;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire TMDS_Clk_n;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire TMDS_Clk_p;
   (* IOSTANDARD = "TMDS_33" *) (* SLEW = "SLOW" *) wire [2:0]TMDS_Data_n;
@@ -50,13 +47,13 @@ module rgb2dvi_0
   wire vid_pVDE;
   wire vid_pVSync;
 
-  (* kClkPrimitive = "MMCM" *) 
+  (* kClkPrimitive = "PLL" *) 
   (* kClkRange = "1" *) 
-  (* kGenerateSerialClk = "FALSE" *) 
+  (* kGenerateSerialClk = "TRUE" *) 
   (* kRstActiveHigh = "FALSE" *) 
   rgb2dvi_0_rgb2dvi U0
        (.PixelClk(PixelClk),
-        .SerialClk(SerialClk),
+        .SerialClk(1'b0),
         .TMDS_Clk_n(TMDS_Clk_n),
         .TMDS_Clk_p(TMDS_Clk_p),
         .TMDS_Data_n(TMDS_Data_n),
@@ -67,6 +64,147 @@ module rgb2dvi_0
         .vid_pHSync(vid_pHSync),
         .vid_pVDE(vid_pVDE),
         .vid_pVSync(vid_pVSync));
+endmodule
+
+(* ORIG_REF_NAME = "ClockGen" *) 
+module rgb2dvi_0_ClockGen
+   (SerialClk,
+    PixelClk,
+    in0,
+    \oSyncStages_reg[1] ,
+    aRst_n);
+  output SerialClk;
+  output PixelClk;
+  output in0;
+  input \oSyncStages_reg[1] ;
+  input aRst_n;
+
+  wire CLKFBIN;
+  wire PixelClk;
+  wire RST;
+  wire SerialClk;
+  wire aPixelClkLckd;
+  wire aRst_n;
+  wire in0;
+  wire oOut;
+  wire \oSyncStages_reg[1] ;
+  wire pLockWasLost0_n_0;
+  wire \pLocked_q_reg_n_0_[0] ;
+  wire \pLocked_q_reg_n_0_[1] ;
+  wire pRst;
+  wire p_1_in;
+  wire \NLW_GenPLL.DVI_ClkGenerator_CLKOUT2_UNCONNECTED ;
+  wire \NLW_GenPLL.DVI_ClkGenerator_CLKOUT3_UNCONNECTED ;
+  wire \NLW_GenPLL.DVI_ClkGenerator_CLKOUT4_UNCONNECTED ;
+  wire \NLW_GenPLL.DVI_ClkGenerator_CLKOUT5_UNCONNECTED ;
+  wire \NLW_GenPLL.DVI_ClkGenerator_DRDY_UNCONNECTED ;
+  wire [15:0]\NLW_GenPLL.DVI_ClkGenerator_DO_UNCONNECTED ;
+
+  (* box_type = "PRIMITIVE" *) 
+  PLLE2_ADV #(
+    .BANDWIDTH("OPTIMIZED"),
+    .CLKFBOUT_MULT(10),
+    .CLKFBOUT_PHASE(0.000000),
+    .CLKIN1_PERIOD(6.250000),
+    .CLKIN2_PERIOD(0.000000),
+    .CLKOUT0_DIVIDE(2),
+    .CLKOUT0_DUTY_CYCLE(0.500000),
+    .CLKOUT0_PHASE(0.000000),
+    .CLKOUT1_DIVIDE(10),
+    .CLKOUT1_DUTY_CYCLE(0.500000),
+    .CLKOUT1_PHASE(0.000000),
+    .CLKOUT2_DIVIDE(1),
+    .CLKOUT2_DUTY_CYCLE(0.500000),
+    .CLKOUT2_PHASE(0.000000),
+    .CLKOUT3_DIVIDE(1),
+    .CLKOUT3_DUTY_CYCLE(0.500000),
+    .CLKOUT3_PHASE(0.000000),
+    .CLKOUT4_DIVIDE(1),
+    .CLKOUT4_DUTY_CYCLE(0.500000),
+    .CLKOUT4_PHASE(0.000000),
+    .CLKOUT5_DIVIDE(1),
+    .CLKOUT5_DUTY_CYCLE(0.500000),
+    .CLKOUT5_PHASE(0.000000),
+    .COMPENSATION("INTERNAL"),
+    .DIVCLK_DIVIDE(1),
+    .IS_CLKINSEL_INVERTED(1'b0),
+    .IS_PWRDWN_INVERTED(1'b0),
+    .IS_RST_INVERTED(1'b0),
+    .REF_JITTER1(0.010000),
+    .REF_JITTER2(0.000000),
+    .STARTUP_WAIT("FALSE")) 
+    \GenPLL.DVI_ClkGenerator 
+       (.CLKFBIN(CLKFBIN),
+        .CLKFBOUT(CLKFBIN),
+        .CLKIN1(\oSyncStages_reg[1] ),
+        .CLKIN2(1'b0),
+        .CLKINSEL(1'b1),
+        .CLKOUT0(SerialClk),
+        .CLKOUT1(PixelClk),
+        .CLKOUT2(\NLW_GenPLL.DVI_ClkGenerator_CLKOUT2_UNCONNECTED ),
+        .CLKOUT3(\NLW_GenPLL.DVI_ClkGenerator_CLKOUT3_UNCONNECTED ),
+        .CLKOUT4(\NLW_GenPLL.DVI_ClkGenerator_CLKOUT4_UNCONNECTED ),
+        .CLKOUT5(\NLW_GenPLL.DVI_ClkGenerator_CLKOUT5_UNCONNECTED ),
+        .DADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .DCLK(1'b0),
+        .DEN(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .DO(\NLW_GenPLL.DVI_ClkGenerator_DO_UNCONNECTED [15:0]),
+        .DRDY(\NLW_GenPLL.DVI_ClkGenerator_DRDY_UNCONNECTED ),
+        .DWE(1'b0),
+        .LOCKED(aPixelClkLckd),
+        .PWRDWN(1'b0),
+        .RST(RST));
+  rgb2dvi_0_ResetBridge_5 LockLostReset
+       (.AS(pRst),
+        .aRst_n(aRst_n),
+        .\oSyncStages_reg[1] (\oSyncStages_reg[1] ));
+  rgb2dvi_0_SyncAsync__parameterized1 PLL_LockSyncAsync
+       (.D(oOut),
+        .\oSyncStages_reg[0]_0 (aPixelClkLckd),
+        .\oSyncStages_reg[1]_0 (\oSyncStages_reg[1] ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    aRst_int_inferred_i_1__0
+       (.I0(aPixelClkLckd),
+        .O(in0));
+  LUT3 #(
+    .INIT(8'h70)) 
+    pLockWasLost0
+       (.I0(\pLocked_q_reg_n_0_[1] ),
+        .I1(\pLocked_q_reg_n_0_[0] ),
+        .I2(p_1_in),
+        .O(pLockWasLost0_n_0));
+  FDPE pLockWasLost_reg
+       (.C(\oSyncStages_reg[1] ),
+        .CE(1'b1),
+        .D(pLockWasLost0_n_0),
+        .PRE(pRst),
+        .Q(RST));
+  FDPE #(
+    .INIT(1'b1)) 
+    \pLocked_q_reg[0] 
+       (.C(\oSyncStages_reg[1] ),
+        .CE(1'b1),
+        .D(oOut),
+        .PRE(pRst),
+        .Q(\pLocked_q_reg_n_0_[0] ));
+  FDPE #(
+    .INIT(1'b1)) 
+    \pLocked_q_reg[1] 
+       (.C(\oSyncStages_reg[1] ),
+        .CE(1'b1),
+        .D(\pLocked_q_reg_n_0_[0] ),
+        .PRE(pRst),
+        .Q(\pLocked_q_reg_n_0_[1] ));
+  FDPE #(
+    .INIT(1'b1)) 
+    \pLocked_q_reg[2] 
+       (.C(\oSyncStages_reg[1] ),
+        .CE(1'b1),
+        .D(\pLocked_q_reg_n_0_[1] ),
+        .PRE(pRst),
+        .Q(p_1_in));
 endmodule
 
 (* ORIG_REF_NAME = "OutputSERDES" *) 
@@ -685,26 +823,46 @@ endmodule
 (* ORIG_REF_NAME = "ResetBridge" *) 
 module rgb2dvi_0_ResetBridge
    (out,
-    aRst_n,
+    in0,
     PixelClk);
   output [0:0]out;
-  input aRst_n;
+  input in0;
   input PixelClk;
 
   wire PixelClk;
   (* RTL_KEEP = "true" *) wire aRst_int;
-  wire aRst_n;
   wire [0:0]out;
 
+  assign aRst_int = in0;
   rgb2dvi_0_SyncAsync SyncAsyncx
        (.AS(aRst_int),
         .PixelClk(PixelClk),
         .out(out));
+endmodule
+
+(* ORIG_REF_NAME = "ResetBridge" *) 
+module rgb2dvi_0_ResetBridge_5
+   (AS,
+    aRst_n,
+    \oSyncStages_reg[1] );
+  output [0:0]AS;
+  input aRst_n;
+  input \oSyncStages_reg[1] ;
+
+  wire [0:0]AS;
+  (* RTL_KEEP = "true" *) wire aRst_int_0;
+  wire aRst_n;
+  wire \oSyncStages_reg[1] ;
+
+  rgb2dvi_0_SyncAsync_6 SyncAsyncx
+       (.AS(AS),
+        .\oSyncStages_reg[0]_0 (aRst_int_0),
+        .\oSyncStages_reg[1]_0 (\oSyncStages_reg[1] ));
   LUT1 #(
     .INIT(2'h1)) 
     aRst_int_inferred_i_1
        (.I0(aRst_n),
-        .O(aRst_int));
+        .O(aRst_int_0));
 endmodule
 
 (* ORIG_REF_NAME = "SyncAsync" *) 
@@ -743,6 +901,78 @@ module rgb2dvi_0_SyncAsync
         .Q(oSyncStages[1]));
 endmodule
 
+(* ORIG_REF_NAME = "SyncAsync" *) 
+module rgb2dvi_0_SyncAsync_6
+   (AS,
+    \oSyncStages_reg[1]_0 ,
+    \oSyncStages_reg[0]_0 );
+  output [0:0]AS;
+  input \oSyncStages_reg[1]_0 ;
+  input [0:0]\oSyncStages_reg[0]_0 ;
+
+  (* async_reg = "true" *) wire [1:0]oSyncStages;
+  wire [0:0]\oSyncStages_reg[0]_0 ;
+  wire \oSyncStages_reg[1]_0 ;
+
+  assign AS[0] = oSyncStages[1];
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDPE #(
+    .INIT(1'b1)) 
+    \oSyncStages_reg[0] 
+       (.C(\oSyncStages_reg[1]_0 ),
+        .CE(1'b1),
+        .D(1'b0),
+        .PRE(\oSyncStages_reg[0]_0 ),
+        .Q(oSyncStages[0]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDPE #(
+    .INIT(1'b1)) 
+    \oSyncStages_reg[1] 
+       (.C(\oSyncStages_reg[1]_0 ),
+        .CE(1'b1),
+        .D(oSyncStages[0]),
+        .PRE(\oSyncStages_reg[0]_0 ),
+        .Q(oSyncStages[1]));
+endmodule
+
+(* ORIG_REF_NAME = "SyncAsync" *) 
+module rgb2dvi_0_SyncAsync__parameterized1
+   (D,
+    \oSyncStages_reg[1]_0 ,
+    \oSyncStages_reg[0]_0 );
+  output [0:0]D;
+  input \oSyncStages_reg[1]_0 ;
+  input [0:0]\oSyncStages_reg[0]_0 ;
+
+  (* async_reg = "true" *) wire [1:0]oSyncStages;
+  wire [0:0]\oSyncStages_reg[0]_0 ;
+  wire \oSyncStages_reg[1]_0 ;
+
+  assign D[0] = oSyncStages[1];
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \oSyncStages_reg[0] 
+       (.C(\oSyncStages_reg[1]_0 ),
+        .CE(1'b1),
+        .D(\oSyncStages_reg[0]_0 ),
+        .Q(oSyncStages[0]),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \oSyncStages_reg[1] 
+       (.C(\oSyncStages_reg[1]_0 ),
+        .CE(1'b1),
+        .D(oSyncStages[0]),
+        .Q(oSyncStages[1]),
+        .R(1'b0));
+endmodule
+
 (* ORIG_REF_NAME = "TMDS_Encoder" *) 
 module rgb2dvi_0_TMDS_Encoder
    (SR,
@@ -769,18 +999,21 @@ module rgb2dvi_0_TMDS_Encoder
   wire \cnt_t_3[2]_i_2__0_n_0 ;
   wire \cnt_t_3[2]_i_3_n_0 ;
   wire \cnt_t_3[2]_i_4_n_0 ;
-  wire \cnt_t_3[3]_i_2__1_n_0 ;
+  wire \cnt_t_3[3]_i_2__0_n_0 ;
   wire \cnt_t_3[3]_i_3_n_0 ;
   wire \cnt_t_3[3]_i_4_n_0 ;
   wire \cnt_t_3[3]_i_5_n_0 ;
-  wire \cnt_t_3[3]_i_6_n_0 ;
-  wire \cnt_t_3[3]_i_7_n_0 ;
   wire \cnt_t_3[4]_i_10_n_0 ;
-  wire \cnt_t_3[4]_i_3__1_n_0 ;
+  wire \cnt_t_3[4]_i_11_n_0 ;
+  wire \cnt_t_3[4]_i_12_n_0 ;
+  wire \cnt_t_3[4]_i_13_n_0 ;
+  wire \cnt_t_3[4]_i_14_n_0 ;
+  wire \cnt_t_3[4]_i_15_n_0 ;
+  wire \cnt_t_3[4]_i_3_n_0 ;
   wire \cnt_t_3[4]_i_4_n_0 ;
   wire \cnt_t_3[4]_i_5_n_0 ;
   wire \cnt_t_3[4]_i_6_n_0 ;
-  wire \cnt_t_3[4]_i_7_n_0 ;
+  wire \cnt_t_3[4]_i_7__1_n_0 ;
   wire \cnt_t_3[4]_i_8_n_0 ;
   wire \cnt_t_3[4]_i_9_n_0 ;
   wire [3:1]minusOp;
@@ -817,6 +1050,7 @@ module rgb2dvi_0_TMDS_Encoder
   wire \pDataOutRaw[5]_i_1__1_n_0 ;
   wire \pDataOutRaw[7]_i_1__1_n_0 ;
   wire \pDataOutRaw[9]_i_1__1_n_0 ;
+  wire \pDataOutRaw[9]_i_3_n_0 ;
   wire \pDataOut_1_reg_n_0_[0] ;
   wire \pDataOut_1_reg_n_0_[1] ;
   wire pVde_1;
@@ -852,26 +1086,26 @@ module rgb2dvi_0_TMDS_Encoder
   wire vid_pVSync;
 
   LUT6 #(
-    .INIT(64'h9F60609F609F9F60)) 
+    .INIT(64'h6996699696699696)) 
     \cnt_t_3[1]_i_1 
-       (.I0(p_0_in),
-        .I1(\cnt_t_3[3]_i_4_n_0 ),
-        .I2(\cnt_t_3[2]_i_4_n_0 ),
-        .I3(\n1q_m_2_reg_n_0_[1] ),
-        .I4(n0q_m_2[1]),
-        .I5(cnt_t_3[1]),
-        .O(cnt_t_2[1]));
-  LUT6 #(
-    .INIT(64'h995AAA5A5A665AAA)) 
-    \cnt_t_3[2]_i_1 
-       (.I0(\cnt_t_3[2]_i_2__0_n_0 ),
-        .I1(\cnt_t_3[3]_i_4_n_0 ),
-        .I2(\cnt_t_3[2]_i_3_n_0 ),
-        .I3(cnt_t_3[1]),
+       (.I0(\n1q_m_2_reg_n_0_[1] ),
+        .I1(n0q_m_2[1]),
+        .I2(cnt_t_3[1]),
+        .I3(\cnt_t_3[4]_i_5_n_0 ),
         .I4(\cnt_t_3[2]_i_4_n_0 ),
         .I5(p_0_in),
+        .O(cnt_t_2[1]));
+  LUT6 #(
+    .INIT(64'h56A66A6AA6A6656A)) 
+    \cnt_t_3[2]_i_1 
+       (.I0(\cnt_t_3[2]_i_2__0_n_0 ),
+        .I1(\cnt_t_3[2]_i_3_n_0 ),
+        .I2(cnt_t_3[1]),
+        .I3(\cnt_t_3[2]_i_4_n_0 ),
+        .I4(p_0_in),
+        .I5(\cnt_t_3[4]_i_5_n_0 ),
         .O(cnt_t_2[2]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT5 #(
     .INIT(32'h96699696)) 
     \cnt_t_3[2]_i_2__0 
@@ -881,7 +1115,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I3(n0q_m_2[1]),
         .I4(\n1q_m_2_reg_n_0_[1] ),
         .O(\cnt_t_3[2]_i_2__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \cnt_t_3[2]_i_3 
@@ -889,81 +1123,62 @@ module rgb2dvi_0_TMDS_Encoder
         .I1(n0q_m_2[1]),
         .O(\cnt_t_3[2]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFDFFFDFFFD0000)) 
+    .INIT(64'h0000FFFEFFFEFFFE)) 
     \cnt_t_3[2]_i_4 
-       (.I0(\n1q_m_2_reg_n_0_[2] ),
-        .I1(\n1q_m_2_reg_n_0_[1] ),
-        .I2(\n1q_m_2_reg_n_0_[0] ),
-        .I3(\n1q_m_2_reg_n_0_[3] ),
-        .I4(\cnt_t_3[4]_i_6_n_0 ),
-        .I5(cnt_t_3[4]),
+       (.I0(cnt_t_3[3]),
+        .I1(cnt_t_3[1]),
+        .I2(cnt_t_3[2]),
+        .I3(cnt_t_3[4]),
+        .I4(\cnt_t_3[4]_i_15_n_0 ),
+        .I5(\n1q_m_2_reg_n_0_[2] ),
         .O(\cnt_t_3[2]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'h555556A6AAAA56A6)) 
     \cnt_t_3[3]_i_1 
-       (.I0(\cnt_t_3[3]_i_2__1_n_0 ),
+       (.I0(\cnt_t_3[3]_i_2__0_n_0 ),
         .I1(\cnt_t_3[3]_i_3_n_0 ),
-        .I2(\cnt_t_3[3]_i_4_n_0 ),
-        .I3(\cnt_t_3[3]_i_5_n_0 ),
-        .I4(\cnt_t_3[4]_i_3__1_n_0 ),
-        .I5(\cnt_t_3[3]_i_6_n_0 ),
+        .I2(\cnt_t_3[4]_i_5_n_0 ),
+        .I3(\cnt_t_3[3]_i_4_n_0 ),
+        .I4(\cnt_t_3[4]_i_7__1_n_0 ),
+        .I5(\cnt_t_3[3]_i_5_n_0 ),
         .O(cnt_t_2[3]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h9)) 
-    \cnt_t_3[3]_i_2__1 
+    \cnt_t_3[3]_i_2__0 
        (.I0(cnt_t_3[3]),
-        .I1(\cnt_t_3[4]_i_8_n_0 ),
-        .O(\cnt_t_3[3]_i_2__1_n_0 ));
-  LUT6 #(
-    .INIT(64'h41D70000FFFF41D7)) 
-    \cnt_t_3[3]_i_3 
-       (.I0(cnt_t_3[1]),
-        .I1(n0q_m_2[1]),
-        .I2(\n1q_m_2_reg_n_0_[1] ),
-        .I3(p_0_in),
-        .I4(\cnt_t_3[3]_i_7_n_0 ),
-        .I5(cnt_t_3[2]),
-        .O(\cnt_t_3[3]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'hF0F1F00FFFFFFF0F)) 
-    \cnt_t_3[3]_i_4 
-       (.I0(\n1q_m_2_reg_n_0_[0] ),
-        .I1(\n1q_m_2_reg_n_0_[1] ),
-        .I2(cnt_t_3[4]),
-        .I3(\n1q_m_2_reg_n_0_[3] ),
-        .I4(\n1q_m_2_reg_n_0_[2] ),
-        .I5(\cnt_t_3[4]_i_6_n_0 ),
-        .O(\cnt_t_3[3]_i_4_n_0 ));
+        .I1(\cnt_t_3[4]_i_12_n_0 ),
+        .O(\cnt_t_3[3]_i_2__0_n_0 ));
   LUT6 #(
     .INIT(64'hEEE8E8EEE88888E8)) 
-    \cnt_t_3[3]_i_5 
+    \cnt_t_3[3]_i_3 
        (.I0(cnt_t_3[2]),
-        .I1(\cnt_t_3[3]_i_7_n_0 ),
+        .I1(\cnt_t_3[4]_i_10_n_0 ),
         .I2(cnt_t_3[1]),
         .I3(n0q_m_2[1]),
         .I4(\n1q_m_2_reg_n_0_[1] ),
         .I5(p_0_in),
-        .O(\cnt_t_3[3]_i_5_n_0 ));
+        .O(\cnt_t_3[3]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'h9BBF04DF04DF9BBF)) 
-    \cnt_t_3[3]_i_6 
-       (.I0(n0q_m_2[1]),
-        .I1(\n1q_m_2_reg_n_0_[1] ),
-        .I2(cnt_t_3[1]),
+    .INIT(64'h41D70000FFFF41D7)) 
+    \cnt_t_3[3]_i_4 
+       (.I0(cnt_t_3[1]),
+        .I1(n0q_m_2[1]),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
+        .I3(p_0_in),
+        .I4(\cnt_t_3[4]_i_10_n_0 ),
+        .I5(cnt_t_3[2]),
+        .O(\cnt_t_3[3]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'hC7DF10F710F7C7DF)) 
+    \cnt_t_3[3]_i_5 
+       (.I0(cnt_t_3[1]),
+        .I1(n0q_m_2[1]),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
         .I3(cnt_t_3[2]),
         .I4(\n1q_m_2_reg_n_0_[2] ),
         .I5(n0q_m_2[2]),
-        .O(\cnt_t_3[3]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT4 #(
-    .INIT(16'hD22D)) 
-    \cnt_t_3[3]_i_7 
-       (.I0(\n1q_m_2_reg_n_0_[1] ),
-        .I1(n0q_m_2[1]),
-        .I2(n0q_m_2[2]),
-        .I3(\n1q_m_2_reg_n_0_[2] ),
-        .O(\cnt_t_3[3]_i_7_n_0 ));
+        .O(\cnt_t_3[3]_i_5_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
     \cnt_t_3[4]_i_1 
@@ -971,74 +1186,129 @@ module rgb2dvi_0_TMDS_Encoder
         .O(SR));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
-    .INIT(16'h20BA)) 
+    .INIT(16'hD22D)) 
     \cnt_t_3[4]_i_10 
-       (.I0(\n1q_m_2_reg_n_0_[2] ),
+       (.I0(\n1q_m_2_reg_n_0_[1] ),
+        .I1(n0q_m_2[1]),
+        .I2(n0q_m_2[2]),
+        .I3(\n1q_m_2_reg_n_0_[2] ),
+        .O(\cnt_t_3[4]_i_10_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT4 #(
+    .INIT(16'h147D)) 
+    \cnt_t_3[4]_i_11 
+       (.I0(cnt_t_3[1]),
         .I1(n0q_m_2[1]),
         .I2(\n1q_m_2_reg_n_0_[1] ),
-        .I3(n0q_m_2[2]),
-        .O(\cnt_t_3[4]_i_10_n_0 ));
-  LUT5 #(
-    .INIT(32'h01550101)) 
-    \cnt_t_3[4]_i_3__1 
-       (.I0(p_0_in),
-        .I1(cnt_t_3[4]),
-        .I2(\cnt_t_3[4]_i_6_n_0 ),
-        .I3(\cnt_t_3[4]_i_7_n_0 ),
-        .I4(\n1q_m_2_reg_n_0_[2] ),
-        .O(\cnt_t_3[4]_i_3__1_n_0 ));
-  LUT6 #(
-    .INIT(64'h77CF03448830FCBB)) 
-    \cnt_t_3[4]_i_4 
-       (.I0(\cnt_t_3[3]_i_5_n_0 ),
-        .I1(\cnt_t_3[3]_i_4_n_0 ),
-        .I2(\cnt_t_3[3]_i_3_n_0 ),
-        .I3(cnt_t_3[3]),
-        .I4(\cnt_t_3[4]_i_8_n_0 ),
-        .I5(\cnt_t_3[4]_i_9_n_0 ),
-        .O(\cnt_t_3[4]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'hA69A65A69A59A69A)) 
-    \cnt_t_3[4]_i_5 
-       (.I0(cnt_t_3[4]),
-        .I1(\cnt_t_3[4]_i_10_n_0 ),
-        .I2(n0q_m_2[3]),
-        .I3(\n1q_m_2_reg_n_0_[3] ),
-        .I4(cnt_t_3[3]),
-        .I5(\cnt_t_3[3]_i_6_n_0 ),
-        .O(\cnt_t_3[4]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    \cnt_t_3[4]_i_6 
-       (.I0(cnt_t_3[3]),
-        .I1(cnt_t_3[1]),
-        .I2(cnt_t_3[2]),
-        .O(\cnt_t_3[4]_i_6_n_0 ));
-  LUT3 #(
-    .INIT(8'hFE)) 
-    \cnt_t_3[4]_i_7 
-       (.I0(\n1q_m_2_reg_n_0_[1] ),
-        .I1(\n1q_m_2_reg_n_0_[0] ),
-        .I2(\n1q_m_2_reg_n_0_[3] ),
-        .O(\cnt_t_3[4]_i_7_n_0 ));
+        .I3(p_0_in),
+        .O(\cnt_t_3[4]_i_11_n_0 ));
   LUT6 #(
     .INIT(64'h5D04A2FBA2FB5D04)) 
-    \cnt_t_3[4]_i_8 
+    \cnt_t_3[4]_i_12 
        (.I0(n0q_m_2[2]),
         .I1(\n1q_m_2_reg_n_0_[1] ),
         .I2(n0q_m_2[1]),
         .I3(\n1q_m_2_reg_n_0_[2] ),
         .I4(n0q_m_2[3]),
         .I5(\n1q_m_2_reg_n_0_[3] ),
-        .O(\cnt_t_3[4]_i_8_n_0 ));
+        .O(\cnt_t_3[4]_i_12_n_0 ));
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \cnt_t_3[4]_i_13 
+       (.I0(cnt_t_3[3]),
+        .I1(cnt_t_3[1]),
+        .I2(cnt_t_3[2]),
+        .O(\cnt_t_3[4]_i_13_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
-    .INIT(16'h95A9)) 
-    \cnt_t_3[4]_i_9 
+    .INIT(16'h41D7)) 
+    \cnt_t_3[4]_i_14 
+       (.I0(cnt_t_3[1]),
+        .I1(n0q_m_2[1]),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
+        .I3(p_0_in),
+        .O(\cnt_t_3[4]_i_14_n_0 ));
+  LUT3 #(
+    .INIT(8'h01)) 
+    \cnt_t_3[4]_i_15 
+       (.I0(\n1q_m_2_reg_n_0_[3] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\n1q_m_2_reg_n_0_[0] ),
+        .O(\cnt_t_3[4]_i_15_n_0 ));
+  LUT6 #(
+    .INIT(64'h555556A6AAAA56A6)) 
+    \cnt_t_3[4]_i_2 
+       (.I0(\cnt_t_3[4]_i_3_n_0 ),
+        .I1(\cnt_t_3[4]_i_4_n_0 ),
+        .I2(\cnt_t_3[4]_i_5_n_0 ),
+        .I3(\cnt_t_3[4]_i_6_n_0 ),
+        .I4(\cnt_t_3[4]_i_7__1_n_0 ),
+        .I5(\cnt_t_3[4]_i_8_n_0 ),
+        .O(cnt_t_2[4]));
+  LUT4 #(
+    .INIT(16'h9A59)) 
+    \cnt_t_3[4]_i_3 
        (.I0(cnt_t_3[4]),
-        .I1(\n1q_m_2_reg_n_0_[3] ),
-        .I2(\cnt_t_3[4]_i_10_n_0 ),
-        .I3(n0q_m_2[3]),
+        .I1(\cnt_t_3[4]_i_9_n_0 ),
+        .I2(n0q_m_2[3]),
+        .I3(\n1q_m_2_reg_n_0_[3] ),
+        .O(\cnt_t_3[4]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT5 #(
+    .INIT(32'h8EFF008E)) 
+    \cnt_t_3[4]_i_4 
+       (.I0(cnt_t_3[2]),
+        .I1(\cnt_t_3[4]_i_10_n_0 ),
+        .I2(\cnt_t_3[4]_i_11_n_0 ),
+        .I3(\cnt_t_3[4]_i_12_n_0 ),
+        .I4(cnt_t_3[3]),
+        .O(\cnt_t_3[4]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h000000FFAAA8AA00)) 
+    \cnt_t_3[4]_i_5 
+       (.I0(\cnt_t_3[4]_i_13_n_0 ),
+        .I1(\n1q_m_2_reg_n_0_[0] ),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
+        .I3(\n1q_m_2_reg_n_0_[3] ),
+        .I4(\n1q_m_2_reg_n_0_[2] ),
+        .I5(cnt_t_3[4]),
+        .O(\cnt_t_3[4]_i_5_n_0 ));
+  LUT5 #(
+    .INIT(32'h71117771)) 
+    \cnt_t_3[4]_i_6 
+       (.I0(cnt_t_3[3]),
+        .I1(\cnt_t_3[4]_i_12_n_0 ),
+        .I2(\cnt_t_3[4]_i_14_n_0 ),
+        .I3(\cnt_t_3[4]_i_10_n_0 ),
+        .I4(cnt_t_3[2]),
+        .O(\cnt_t_3[4]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'h40404055)) 
+    \cnt_t_3[4]_i_7__1 
+       (.I0(p_0_in),
+        .I1(\n1q_m_2_reg_n_0_[2] ),
+        .I2(\cnt_t_3[4]_i_15_n_0 ),
+        .I3(cnt_t_3[4]),
+        .I4(\cnt_t_3[4]_i_13_n_0 ),
+        .O(\cnt_t_3[4]_i_7__1_n_0 ));
+  LUT6 #(
+    .INIT(64'h00007F077F07FFFF)) 
+    \cnt_t_3[4]_i_8 
+       (.I0(cnt_t_3[1]),
+        .I1(\cnt_t_3[2]_i_3_n_0 ),
+        .I2(cnt_t_3[2]),
+        .I3(\cnt_t_3[4]_i_10_n_0 ),
+        .I4(cnt_t_3[3]),
+        .I5(\cnt_t_3[4]_i_12_n_0 ),
+        .O(\cnt_t_3[4]_i_8_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT4 #(
+    .INIT(16'h20BA)) 
+    \cnt_t_3[4]_i_9 
+       (.I0(\n1q_m_2_reg_n_0_[2] ),
+        .I1(n0q_m_2[1]),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
+        .I3(n0q_m_2[2]),
         .O(\cnt_t_3[4]_i_9_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -1072,11 +1342,6 @@ module rgb2dvi_0_TMDS_Encoder
         .D(cnt_t_2[4]),
         .Q(cnt_t_3[4]),
         .R(SR));
-  MUXF7 \cnt_t_3_reg[4]_i_2 
-       (.I0(\cnt_t_3[4]_i_4_n_0 ),
-        .I1(\cnt_t_3[4]_i_5_n_0 ),
-        .O(cnt_t_2[4]),
-        .S(\cnt_t_3[4]_i_3__1_n_0 ));
   LUT6 #(
     .INIT(64'h6696696669669969)) 
     \n0q_m_2[1]_i_1 
@@ -1238,7 +1503,7 @@ module rgb2dvi_0_TMDS_Encoder
         .D(sum_bits[3]),
         .Q(\n1d_1_reg_n_0_[3] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
     .INIT(16'h6996)) 
     \n1q_m_2[0]_i_1__0 
@@ -1277,7 +1542,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I4(\n1q_m_2[3]_i_6__0_n_0 ),
         .I5(\pDataOut_1_reg_n_0_[0] ),
         .O(n1q_m_1[3]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h96C33C96)) 
     \n1q_m_2[3]_i_2 
@@ -1287,7 +1552,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I3(p_0_in0_in),
         .I4(\q_m_2[8]_i_1_n_0 ),
         .O(\n1q_m_2[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
     .INIT(16'h3693)) 
     \n1q_m_2[3]_i_3 
@@ -1296,7 +1561,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I2(\q_m_2[8]_i_1_n_0 ),
         .I3(p_0_in8_in_0),
         .O(\n1q_m_2[3]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \n1q_m_2[3]_i_4__0 
@@ -1304,7 +1569,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I1(\q_m_2[8]_i_1_n_0 ),
         .I2(p_0_in8_in_0),
         .O(\n1q_m_2[3]_i_4__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \n1q_m_2[3]_i_5 
@@ -1314,7 +1579,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I3(p_0_in10_in),
         .I4(p_0_in8_in_0),
         .O(\n1q_m_2[3]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \n1q_m_2[3]_i_6__0 
@@ -1370,93 +1635,86 @@ module rgb2dvi_0_TMDS_Encoder
         .D(pC1_1),
         .Q(pC1_2),
         .R(1'b0));
-  LUT6 #(
-    .INIT(64'h0BFBFB0B0B0BFBFB)) 
+  LUT5 #(
+    .INIT(32'hF00FBBBB)) 
     \pDataOutRaw[0]_i_1__1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\DataEncoders[2].DataEncoder/pVde_2 ),
-        .I3(\cnt_t_3[4]_i_3__1_n_0 ),
-        .I4(\q_m_2_reg_n_0_[0] ),
-        .I5(\cnt_t_3[3]_i_4_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
+        .I3(\q_m_2_reg_n_0_[0] ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(\pDataOutRaw[0]_i_1__1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0BFBFB0B0B0BFBFB)) 
+  LUT5 #(
+    .INIT(32'hF00FBBBB)) 
     \pDataOutRaw[1]_i_1__1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\DataEncoders[2].DataEncoder/pVde_2 ),
-        .I3(\cnt_t_3[4]_i_3__1_n_0 ),
-        .I4(\q_m_2_reg_n_0_[1] ),
-        .I5(\cnt_t_3[3]_i_4_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
+        .I3(\q_m_2_reg_n_0_[1] ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(\pDataOutRaw[1]_i_1__1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0FF000FF44444444)) 
+  LUT5 #(
+    .INIT(32'hF00F4444)) 
     \pDataOutRaw[2]_i_1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\cnt_t_3[4]_i_3__1_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
         .I3(\q_m_2_reg_n_0_[2] ),
-        .I4(\cnt_t_3[3]_i_4_n_0 ),
-        .I5(\DataEncoders[2].DataEncoder/pVde_2 ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(q_out_20_in[2]));
-  LUT6 #(
-    .INIT(64'h0BFBFB0B0B0BFBFB)) 
+  LUT5 #(
+    .INIT(32'hF00FBBBB)) 
     \pDataOutRaw[3]_i_1__1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\DataEncoders[2].DataEncoder/pVde_2 ),
-        .I3(\cnt_t_3[4]_i_3__1_n_0 ),
-        .I4(\q_m_2_reg_n_0_[3] ),
-        .I5(\cnt_t_3[3]_i_4_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
+        .I3(\q_m_2_reg_n_0_[3] ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(\pDataOutRaw[3]_i_1__1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0FF000FF44444444)) 
+  LUT5 #(
+    .INIT(32'hF00F4444)) 
     \pDataOutRaw[4]_i_1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\cnt_t_3[4]_i_3__1_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
         .I3(\q_m_2_reg_n_0_[4] ),
-        .I4(\cnt_t_3[3]_i_4_n_0 ),
-        .I5(\DataEncoders[2].DataEncoder/pVde_2 ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(q_out_20_in[4]));
-  LUT6 #(
-    .INIT(64'h0BFBFB0B0B0BFBFB)) 
+  LUT5 #(
+    .INIT(32'hF00FBBBB)) 
     \pDataOutRaw[5]_i_1__1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\DataEncoders[2].DataEncoder/pVde_2 ),
-        .I3(\cnt_t_3[4]_i_3__1_n_0 ),
-        .I4(\q_m_2_reg_n_0_[5] ),
-        .I5(\cnt_t_3[3]_i_4_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
+        .I3(\q_m_2_reg_n_0_[5] ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(\pDataOutRaw[5]_i_1__1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0FF000FF44444444)) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hF00F4444)) 
     \pDataOutRaw[6]_i_1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\cnt_t_3[4]_i_3__1_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
         .I3(\q_m_2_reg_n_0_[6] ),
-        .I4(\cnt_t_3[3]_i_4_n_0 ),
-        .I5(\DataEncoders[2].DataEncoder/pVde_2 ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(q_out_20_in[6]));
-  LUT6 #(
-    .INIT(64'h0BFBFB0B0B0BFBFB)) 
+  LUT5 #(
+    .INIT(32'hF00FBBBB)) 
     \pDataOutRaw[7]_i_1__1 
        (.I0(pC0_2),
         .I1(pC1_2),
-        .I2(\DataEncoders[2].DataEncoder/pVde_2 ),
-        .I3(\cnt_t_3[4]_i_3__1_n_0 ),
-        .I4(\q_m_2_reg_n_0_[7] ),
-        .I5(\cnt_t_3[3]_i_4_n_0 ),
+        .I2(\pDataOutRaw[9]_i_3_n_0 ),
+        .I3(\q_m_2_reg_n_0_[7] ),
+        .I4(\DataEncoders[2].DataEncoder/pVde_2 ),
         .O(\pDataOutRaw[7]_i_1__1_n_0 ));
   LUT4 #(
-    .INIT(16'hA3A0)) 
+    .INIT(16'hF404)) 
     \pDataOutRaw[8]_i_1 
-       (.I0(p_0_in),
-        .I1(pC0_2),
+       (.I0(pC0_2),
+        .I1(pC1_2),
         .I2(\DataEncoders[2].DataEncoder/pVde_2 ),
-        .I3(pC1_2),
+        .I3(p_0_in),
         .O(q_out_20_in[8]));
   LUT3 #(
     .INIT(8'h01)) 
@@ -1465,15 +1723,25 @@ module rgb2dvi_0_TMDS_Encoder
         .I1(\DataEncoders[2].DataEncoder/pVde_2 ),
         .I2(pC0_2),
         .O(\pDataOutRaw[9]_i_1__1_n_0 ));
-  LUT5 #(
-    .INIT(32'hBFB0B0BF)) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h7447)) 
     \pDataOutRaw[9]_i_2 
-       (.I0(\cnt_t_3[4]_i_3__1_n_0 ),
-        .I1(\cnt_t_3[3]_i_4_n_0 ),
-        .I2(\DataEncoders[2].DataEncoder/pVde_2 ),
-        .I3(pC0_2),
-        .I4(pC1_2),
+       (.I0(\pDataOutRaw[9]_i_3_n_0 ),
+        .I1(\DataEncoders[2].DataEncoder/pVde_2 ),
+        .I2(pC0_2),
+        .I3(pC1_2),
         .O(q_out_20_in[9]));
+  LUT6 #(
+    .INIT(64'hFFF3AFA700F0ACA4)) 
+    \pDataOutRaw[9]_i_3 
+       (.I0(\n1q_m_2_reg_n_0_[3] ),
+        .I1(\cnt_t_3[4]_i_13_n_0 ),
+        .I2(cnt_t_3[4]),
+        .I3(\cnt_t_3[4]_i_15_n_0 ),
+        .I4(\n1q_m_2_reg_n_0_[2] ),
+        .I5(p_0_in),
+        .O(\pDataOutRaw[9]_i_3_n_0 ));
   FDRE \pDataOutRaw_reg[0] 
        (.C(PixelClk),
         .CE(1'b1),
@@ -1611,7 +1879,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I1(\pDataOut_1_reg_n_0_[1] ),
         .I2(p_0_in0_in),
         .O(p_0_in9_in));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \q_m_2[3]_i_1 
@@ -1621,7 +1889,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I3(\pDataOut_1_reg_n_0_[0] ),
         .I4(p_0_in2_in),
         .O(p_0_in8_in));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h96696996)) 
     \q_m_2[4]_i_1 
@@ -1631,7 +1899,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I3(p_0_in0_in),
         .I4(p_0_in4_in),
         .O(p_0_in7_in));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \q_m_2[5]_i_1 
@@ -1639,7 +1907,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I1(\q_m_2[7]_i_2_n_0 ),
         .I2(p_0_in6_in_1),
         .O(p_0_in6_in));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \q_m_2[6]_i_1__0 
@@ -1647,7 +1915,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I1(\q_m_2[7]_i_2_n_0 ),
         .I2(p_0_in6_in_1),
         .O(\q_m_2[6]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'h96696996)) 
     \q_m_2[7]_i_1__0 
@@ -1657,7 +1925,7 @@ module rgb2dvi_0_TMDS_Encoder
         .I3(p_0_in10_in),
         .I4(p_0_in8_in_0),
         .O(p_1_in12_in));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \q_m_2[7]_i_2 
@@ -1750,21 +2018,21 @@ module rgb2dvi_0_TMDS_Encoder_1
   wire \cnt_t_3[2]_i_2__1_n_0 ;
   wire \cnt_t_3[2]_i_3__0_n_0 ;
   wire \cnt_t_3[2]_i_4__0_n_0 ;
-  wire \cnt_t_3[3]_i_2_n_0 ;
+  wire \cnt_t_3[3]_i_2__1_n_0 ;
   wire \cnt_t_3[3]_i_3__0_n_0 ;
   wire \cnt_t_3[3]_i_4__0_n_0 ;
   wire \cnt_t_3[3]_i_5__0_n_0 ;
   wire \cnt_t_3[4]_i_10__0_n_0 ;
-  wire \cnt_t_3[4]_i_11_n_0 ;
-  wire \cnt_t_3[4]_i_12_n_0 ;
-  wire \cnt_t_3[4]_i_13_n_0 ;
-  wire \cnt_t_3[4]_i_14_n_0 ;
-  wire \cnt_t_3[4]_i_2_n_0 ;
-  wire \cnt_t_3[4]_i_3_n_0 ;
+  wire \cnt_t_3[4]_i_11__0_n_0 ;
+  wire \cnt_t_3[4]_i_12__0_n_0 ;
+  wire \cnt_t_3[4]_i_13__0_n_0 ;
+  wire \cnt_t_3[4]_i_14__1_n_0 ;
+  wire \cnt_t_3[4]_i_2__0_n_0 ;
+  wire \cnt_t_3[4]_i_3__0_n_0 ;
   wire \cnt_t_3[4]_i_4__0_n_0 ;
   wire \cnt_t_3[4]_i_5__0_n_0 ;
   wire \cnt_t_3[4]_i_6__1_n_0 ;
-  wire \cnt_t_3[4]_i_7__0_n_0 ;
+  wire \cnt_t_3[4]_i_7_n_0 ;
   wire \cnt_t_3[4]_i_8__0_n_0 ;
   wire \cnt_t_3[4]_i_9__0_n_0 ;
   wire \cnt_t_3_reg_n_0_[1] ;
@@ -1853,26 +2121,26 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I5(p_0_in),
         .O(cnt_t_2[1]));
   LUT6 #(
-    .INIT(64'h9A569A9A596A6A6A)) 
+    .INIT(64'h95569AA6A55AAAAA)) 
     \cnt_t_3[2]_i_1__0 
        (.I0(\cnt_t_3[2]_i_2__1_n_0 ),
-        .I1(\cnt_t_3_reg_n_0_[1] ),
-        .I2(\cnt_t_3[2]_i_3__0_n_0 ),
-        .I3(\cnt_t_3[4]_i_4__0_n_0 ),
-        .I4(\cnt_t_3[2]_i_4__0_n_0 ),
-        .I5(p_0_in),
+        .I1(\cnt_t_3[4]_i_4__0_n_0 ),
+        .I2(p_0_in),
+        .I3(\cnt_t_3_reg_n_0_[1] ),
+        .I4(\cnt_t_3[2]_i_3__0_n_0 ),
+        .I5(\cnt_t_3[2]_i_4__0_n_0 ),
         .O(cnt_t_2[2]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
-    .INIT(32'h96966996)) 
+    .INIT(32'h96699696)) 
     \cnt_t_3[2]_i_2__1 
        (.I0(\cnt_t_3_reg_n_0_[2] ),
         .I1(\n1q_m_2_reg_n_0_[2] ),
         .I2(\n0q_m_2_reg_n_0_[2] ),
-        .I3(\n1q_m_2_reg_n_0_[1] ),
-        .I4(\n0q_m_2_reg_n_0_[1] ),
+        .I3(\n0q_m_2_reg_n_0_[1] ),
+        .I4(\n1q_m_2_reg_n_0_[1] ),
         .O(\cnt_t_3[2]_i_2__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \cnt_t_3[2]_i_3__0 
@@ -1880,51 +2148,51 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I1(\n0q_m_2_reg_n_0_[1] ),
         .O(\cnt_t_3[2]_i_3__0_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFD0000FFFDFFFD)) 
+    .INIT(64'h0000FFFEFFFEFFFE)) 
     \cnt_t_3[2]_i_4__0 
-       (.I0(\n1q_m_2_reg_n_0_[2] ),
-        .I1(\n1q_m_2_reg_n_0_[1] ),
-        .I2(\n1q_m_2_reg_n_0_[0] ),
-        .I3(\n1q_m_2_reg_n_0_[3] ),
-        .I4(\cnt_t_3_reg_n_0_[4] ),
-        .I5(\cnt_t_3[4]_i_12_n_0 ),
+       (.I0(\cnt_t_3_reg_n_0_[3] ),
+        .I1(\cnt_t_3_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[2] ),
+        .I3(\cnt_t_3_reg_n_0_[4] ),
+        .I4(\cnt_t_3[4]_i_14__1_n_0 ),
+        .I5(\n1q_m_2_reg_n_0_[2] ),
         .O(\cnt_t_3[2]_i_4__0_n_0 ));
   LUT6 #(
     .INIT(64'h555556A6AAAA56A6)) 
     \cnt_t_3[3]_i_1__0 
-       (.I0(\cnt_t_3[3]_i_2_n_0 ),
+       (.I0(\cnt_t_3[3]_i_2__1_n_0 ),
         .I1(\cnt_t_3[3]_i_3__0_n_0 ),
         .I2(\cnt_t_3[4]_i_4__0_n_0 ),
         .I3(\cnt_t_3[3]_i_4__0_n_0 ),
         .I4(\cnt_t_3[4]_i_6__1_n_0 ),
         .I5(\cnt_t_3[3]_i_5__0_n_0 ),
         .O(cnt_t_2[3]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
-    .INIT(4'h6)) 
-    \cnt_t_3[3]_i_2 
+    .INIT(4'h9)) 
+    \cnt_t_3[3]_i_2__1 
        (.I0(\cnt_t_3_reg_n_0_[3] ),
         .I1(\cnt_t_3[4]_i_9__0_n_0 ),
-        .O(\cnt_t_3[3]_i_2_n_0 ));
+        .O(\cnt_t_3[3]_i_2__1_n_0 ));
   LUT6 #(
-    .INIT(64'h41D70000FFFF41D7)) 
+    .INIT(64'h099FFFFF0000099F)) 
     \cnt_t_3[3]_i_3__0 
-       (.I0(\cnt_t_3_reg_n_0_[1] ),
-        .I1(\n0q_m_2_reg_n_0_[1] ),
-        .I2(\n1q_m_2_reg_n_0_[1] ),
+       (.I0(\n0q_m_2_reg_n_0_[1] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[1] ),
         .I3(p_0_in),
-        .I4(\cnt_t_3[4]_i_11_n_0 ),
-        .I5(\cnt_t_3_reg_n_0_[2] ),
+        .I4(\cnt_t_3_reg_n_0_[2] ),
+        .I5(\cnt_t_3[4]_i_11__0_n_0 ),
         .O(\cnt_t_3[3]_i_3__0_n_0 ));
   LUT6 #(
-    .INIT(64'hEEE8E8EEE88888E8)) 
+    .INIT(64'hEEE8E888E888EEE8)) 
     \cnt_t_3[3]_i_4__0 
        (.I0(\cnt_t_3_reg_n_0_[2] ),
-        .I1(\cnt_t_3[4]_i_11_n_0 ),
-        .I2(\cnt_t_3_reg_n_0_[1] ),
-        .I3(\n0q_m_2_reg_n_0_[1] ),
+        .I1(\cnt_t_3[4]_i_11__0_n_0 ),
+        .I2(p_0_in),
+        .I3(\cnt_t_3_reg_n_0_[1] ),
         .I4(\n1q_m_2_reg_n_0_[1] ),
-        .I5(p_0_in),
+        .I5(\n0q_m_2_reg_n_0_[1] ),
         .O(\cnt_t_3[3]_i_4__0_n_0 ));
   LUT6 #(
     .INIT(64'h9BBF04DF04DF9BBF)) 
@@ -1936,129 +2204,129 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I4(\n1q_m_2_reg_n_0_[2] ),
         .I5(\n0q_m_2_reg_n_0_[2] ),
         .O(\cnt_t_3[3]_i_5__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
-    .INIT(16'h41D7)) 
+    .INIT(16'h099F)) 
     \cnt_t_3[4]_i_10__0 
-       (.I0(\cnt_t_3_reg_n_0_[1] ),
-        .I1(\n0q_m_2_reg_n_0_[1] ),
-        .I2(\n1q_m_2_reg_n_0_[1] ),
-        .I3(p_0_in),
-        .O(\cnt_t_3[4]_i_10__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
-  LUT4 #(
-    .INIT(16'hB44B)) 
-    \cnt_t_3[4]_i_11 
        (.I0(\n0q_m_2_reg_n_0_[1] ),
         .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[1] ),
+        .I3(p_0_in),
+        .O(\cnt_t_3[4]_i_10__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT4 #(
+    .INIT(16'hD22D)) 
+    \cnt_t_3[4]_i_11__0 
+       (.I0(\n1q_m_2_reg_n_0_[1] ),
+        .I1(\n0q_m_2_reg_n_0_[1] ),
         .I2(\n0q_m_2_reg_n_0_[2] ),
         .I3(\n1q_m_2_reg_n_0_[2] ),
-        .O(\cnt_t_3[4]_i_11_n_0 ));
+        .O(\cnt_t_3[4]_i_11__0_n_0 ));
   LUT3 #(
-    .INIT(8'h01)) 
-    \cnt_t_3[4]_i_12 
+    .INIT(8'hFE)) 
+    \cnt_t_3[4]_i_12__0 
        (.I0(\cnt_t_3_reg_n_0_[3] ),
         .I1(\cnt_t_3_reg_n_0_[1] ),
         .I2(\cnt_t_3_reg_n_0_[2] ),
-        .O(\cnt_t_3[4]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+        .O(\cnt_t_3[4]_i_12__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
-    .INIT(16'h147D)) 
-    \cnt_t_3[4]_i_13 
-       (.I0(\cnt_t_3_reg_n_0_[1] ),
-        .I1(\n0q_m_2_reg_n_0_[1] ),
+    .INIT(16'hE88E)) 
+    \cnt_t_3[4]_i_13__0 
+       (.I0(p_0_in),
+        .I1(\cnt_t_3_reg_n_0_[1] ),
         .I2(\n1q_m_2_reg_n_0_[1] ),
-        .I3(p_0_in),
-        .O(\cnt_t_3[4]_i_13_n_0 ));
+        .I3(\n0q_m_2_reg_n_0_[1] ),
+        .O(\cnt_t_3[4]_i_13__0_n_0 ));
   LUT3 #(
-    .INIT(8'hFE)) 
-    \cnt_t_3[4]_i_14 
-       (.I0(\n1q_m_2_reg_n_0_[1] ),
-        .I1(\n1q_m_2_reg_n_0_[0] ),
-        .I2(\n1q_m_2_reg_n_0_[3] ),
-        .O(\cnt_t_3[4]_i_14_n_0 ));
+    .INIT(8'h01)) 
+    \cnt_t_3[4]_i_14__1 
+       (.I0(\n1q_m_2_reg_n_0_[3] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\n1q_m_2_reg_n_0_[0] ),
+        .O(\cnt_t_3[4]_i_14__1_n_0 ));
   LUT6 #(
     .INIT(64'h555556A6AAAA56A6)) 
     \cnt_t_3[4]_i_1__0 
-       (.I0(\cnt_t_3[4]_i_2_n_0 ),
-        .I1(\cnt_t_3[4]_i_3_n_0 ),
+       (.I0(\cnt_t_3[4]_i_2__0_n_0 ),
+        .I1(\cnt_t_3[4]_i_3__0_n_0 ),
         .I2(\cnt_t_3[4]_i_4__0_n_0 ),
         .I3(\cnt_t_3[4]_i_5__0_n_0 ),
         .I4(\cnt_t_3[4]_i_6__1_n_0 ),
-        .I5(\cnt_t_3[4]_i_7__0_n_0 ),
+        .I5(\cnt_t_3[4]_i_7_n_0 ),
         .O(cnt_t_2[4]));
   LUT4 #(
-    .INIT(16'h599A)) 
-    \cnt_t_3[4]_i_2 
+    .INIT(16'h9A59)) 
+    \cnt_t_3[4]_i_2__0 
        (.I0(\cnt_t_3_reg_n_0_[4] ),
-        .I1(\n1q_m_2_reg_n_0_[3] ),
-        .I2(\cnt_t_3[4]_i_8__0_n_0 ),
-        .I3(\n0q_m_2_reg_n_0_[3] ),
-        .O(\cnt_t_3[4]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+        .I1(\cnt_t_3[4]_i_8__0_n_0 ),
+        .I2(\n0q_m_2_reg_n_0_[3] ),
+        .I3(\n1q_m_2_reg_n_0_[3] ),
+        .O(\cnt_t_3[4]_i_2__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
-    .INIT(32'hD444DDD4)) 
-    \cnt_t_3[4]_i_3 
+    .INIT(32'h71771171)) 
+    \cnt_t_3[4]_i_3__0 
        (.I0(\cnt_t_3_reg_n_0_[3] ),
         .I1(\cnt_t_3[4]_i_9__0_n_0 ),
         .I2(\cnt_t_3[4]_i_10__0_n_0 ),
-        .I3(\cnt_t_3[4]_i_11_n_0 ),
-        .I4(\cnt_t_3_reg_n_0_[2] ),
-        .O(\cnt_t_3[4]_i_3_n_0 ));
+        .I3(\cnt_t_3_reg_n_0_[2] ),
+        .I4(\cnt_t_3[4]_i_11__0_n_0 ),
+        .O(\cnt_t_3[4]_i_3__0_n_0 ));
   LUT6 #(
-    .INIT(64'hFCABFCABFCABFCBB)) 
+    .INIT(64'hFFFFFF00555755FF)) 
     \cnt_t_3[4]_i_4__0 
-       (.I0(\cnt_t_3[4]_i_12_n_0 ),
-        .I1(\n1q_m_2_reg_n_0_[3] ),
-        .I2(\n1q_m_2_reg_n_0_[2] ),
-        .I3(\cnt_t_3_reg_n_0_[4] ),
-        .I4(\n1q_m_2_reg_n_0_[1] ),
-        .I5(\n1q_m_2_reg_n_0_[0] ),
+       (.I0(\cnt_t_3[4]_i_12__0_n_0 ),
+        .I1(\n1q_m_2_reg_n_0_[0] ),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
+        .I3(\n1q_m_2_reg_n_0_[3] ),
+        .I4(\n1q_m_2_reg_n_0_[2] ),
+        .I5(\cnt_t_3_reg_n_0_[4] ),
         .O(\cnt_t_3[4]_i_4__0_n_0 ));
   LUT5 #(
-    .INIT(32'hFF8E8E00)) 
+    .INIT(32'hE8FF00E8)) 
     \cnt_t_3[4]_i_5__0 
        (.I0(\cnt_t_3_reg_n_0_[2] ),
-        .I1(\cnt_t_3[4]_i_11_n_0 ),
-        .I2(\cnt_t_3[4]_i_13_n_0 ),
-        .I3(\cnt_t_3_reg_n_0_[3] ),
-        .I4(\cnt_t_3[4]_i_9__0_n_0 ),
+        .I1(\cnt_t_3[4]_i_11__0_n_0 ),
+        .I2(\cnt_t_3[4]_i_13__0_n_0 ),
+        .I3(\cnt_t_3[4]_i_9__0_n_0 ),
+        .I4(\cnt_t_3_reg_n_0_[3] ),
         .O(\cnt_t_3[4]_i_5__0_n_0 ));
   LUT5 #(
-    .INIT(32'h04550404)) 
+    .INIT(32'h40404055)) 
     \cnt_t_3[4]_i_6__1 
        (.I0(p_0_in),
-        .I1(\cnt_t_3[4]_i_12_n_0 ),
-        .I2(\cnt_t_3_reg_n_0_[4] ),
-        .I3(\cnt_t_3[4]_i_14_n_0 ),
-        .I4(\n1q_m_2_reg_n_0_[2] ),
+        .I1(\n1q_m_2_reg_n_0_[2] ),
+        .I2(\cnt_t_3[4]_i_14__1_n_0 ),
+        .I3(\cnt_t_3_reg_n_0_[4] ),
+        .I4(\cnt_t_3[4]_i_12__0_n_0 ),
         .O(\cnt_t_3[4]_i_6__1_n_0 ));
   LUT6 #(
-    .INIT(64'h7F07FFFF00007F07)) 
-    \cnt_t_3[4]_i_7__0 
+    .INIT(64'h00007F077F07FFFF)) 
+    \cnt_t_3[4]_i_7 
        (.I0(\cnt_t_3[2]_i_3__0_n_0 ),
         .I1(\cnt_t_3_reg_n_0_[1] ),
         .I2(\cnt_t_3_reg_n_0_[2] ),
-        .I3(\cnt_t_3[4]_i_11_n_0 ),
+        .I3(\cnt_t_3[4]_i_11__0_n_0 ),
         .I4(\cnt_t_3_reg_n_0_[3] ),
         .I5(\cnt_t_3[4]_i_9__0_n_0 ),
-        .O(\cnt_t_3[4]_i_7__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+        .O(\cnt_t_3[4]_i_7_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
-    .INIT(16'h8AEF)) 
+    .INIT(16'h20BA)) 
     \cnt_t_3[4]_i_8__0 
-       (.I0(\n0q_m_2_reg_n_0_[2] ),
+       (.I0(\n1q_m_2_reg_n_0_[2] ),
         .I1(\n0q_m_2_reg_n_0_[1] ),
         .I2(\n1q_m_2_reg_n_0_[1] ),
-        .I3(\n1q_m_2_reg_n_0_[2] ),
+        .I3(\n0q_m_2_reg_n_0_[2] ),
         .O(\cnt_t_3[4]_i_8__0_n_0 ));
   LUT6 #(
-    .INIT(64'hF75108AE08AEF751)) 
+    .INIT(64'h5D04A2FBA2FB5D04)) 
     \cnt_t_3[4]_i_9__0 
-       (.I0(\n1q_m_2_reg_n_0_[2] ),
+       (.I0(\n0q_m_2_reg_n_0_[2] ),
         .I1(\n1q_m_2_reg_n_0_[1] ),
         .I2(\n0q_m_2_reg_n_0_[1] ),
-        .I3(\n0q_m_2_reg_n_0_[2] ),
+        .I3(\n1q_m_2_reg_n_0_[2] ),
         .I4(\n0q_m_2_reg_n_0_[3] ),
         .I5(\n1q_m_2_reg_n_0_[3] ),
         .O(\cnt_t_3[4]_i_9__0_n_0 ));
@@ -2152,7 +2420,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I4(vid_pData[6]),
         .I5(vid_pData[4]),
         .O(\n1d_1[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \n1d_1[0]_i_2 
@@ -2214,7 +2482,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I4(vid_pData[0]),
         .I5(\n1d_1[0]_i_2_n_0 ),
         .O(\n1d_1[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'hE88E8EE8)) 
     \n1d_1[3]_i_3 
@@ -2255,7 +2523,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .D(\n1d_1[3]_i_1_n_0 ),
         .Q(\n1d_1_reg_n_0_[3] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h6996)) 
     \n1q_m_2[0]_i_1__1 
@@ -2294,7 +2562,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I4(\n1q_m_2[3]_i_6__1_n_0 ),
         .I5(\pDataOut_1_reg_n_0_[0] ),
         .O(\n1q_m_2[3]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'h96C33C96)) 
     \n1q_m_2[3]_i_2__0 
@@ -2304,7 +2572,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I3(p_0_in0_in),
         .I4(\q_m_2[8]_i_1__0_n_0 ),
         .O(\n1q_m_2[3]_i_2__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT4 #(
     .INIT(16'h3693)) 
     \n1q_m_2[3]_i_3__0 
@@ -2313,7 +2581,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I2(\q_m_2[8]_i_1__0_n_0 ),
         .I3(p_0_in8_in),
         .O(\n1q_m_2[3]_i_3__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \n1q_m_2[3]_i_4__1 
@@ -2321,7 +2589,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I1(\q_m_2[8]_i_1__0_n_0 ),
         .I2(p_0_in8_in),
         .O(\n1q_m_2[3]_i_4__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \n1q_m_2[3]_i_5__0 
@@ -2331,7 +2599,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I3(p_0_in10_in),
         .I4(p_0_in8_in),
         .O(\n1q_m_2[3]_i_5__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \n1q_m_2[3]_i_6__1 
@@ -2376,63 +2644,62 @@ module rgb2dvi_0_TMDS_Encoder_1
        (.I0(\pDataOutRaw[9]_i_2__0_n_0 ),
         .I1(\q_m_2_reg_n_0_[1] ),
         .O(\pDataOutRaw[1]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'h39)) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
     \pDataOutRaw[2]_i_1__0 
-       (.I0(\cnt_t_3[4]_i_4__0_n_0 ),
-        .I1(\q_m_2_reg_n_0_[2] ),
-        .I2(\cnt_t_3[4]_i_6__1_n_0 ),
+       (.I0(\q_m_2_reg_n_0_[2] ),
+        .I1(\pDataOutRaw[9]_i_2__0_n_0 ),
         .O(\pDataOutRaw[2]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \pDataOutRaw[3]_i_1 
        (.I0(\pDataOutRaw[9]_i_2__0_n_0 ),
         .I1(\q_m_2_reg_n_0_[3] ),
         .O(\pDataOutRaw[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
-  LUT3 #(
-    .INIT(8'h39)) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
     \pDataOutRaw[4]_i_1__0 
-       (.I0(\cnt_t_3[4]_i_4__0_n_0 ),
-        .I1(\q_m_2_reg_n_0_[4] ),
-        .I2(\cnt_t_3[4]_i_6__1_n_0 ),
+       (.I0(\q_m_2_reg_n_0_[4] ),
+        .I1(\pDataOutRaw[9]_i_2__0_n_0 ),
         .O(\pDataOutRaw[4]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \pDataOutRaw[5]_i_1 
        (.I0(\pDataOutRaw[9]_i_2__0_n_0 ),
         .I1(\q_m_2_reg_n_0_[5] ),
         .O(\pDataOutRaw[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
-  LUT3 #(
-    .INIT(8'h39)) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
     \pDataOutRaw[6]_i_1__0 
-       (.I0(\cnt_t_3[4]_i_4__0_n_0 ),
-        .I1(\q_m_2_reg_n_0_[6] ),
-        .I2(\cnt_t_3[4]_i_6__1_n_0 ),
+       (.I0(\q_m_2_reg_n_0_[6] ),
+        .I1(\pDataOutRaw[9]_i_2__0_n_0 ),
         .O(\pDataOutRaw[6]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \pDataOutRaw[7]_i_1 
        (.I0(\pDataOutRaw[9]_i_2__0_n_0 ),
         .I1(\q_m_2_reg_n_0_[7] ),
         .O(\pDataOutRaw[7]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \pDataOutRaw[9]_i_1 
        (.I0(\pDataOutRaw[9]_i_2__0_n_0 ),
         .O(\pDataOutRaw[9]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hEEFFEE1FE200E213)) 
+    .INIT(64'hFFF3AFA700F0ACA4)) 
     \pDataOutRaw[9]_i_2__0 
        (.I0(\n1q_m_2_reg_n_0_[3] ),
-        .I1(\n1q_m_2_reg_n_0_[2] ),
-        .I2(\cnt_t_3[4]_i_14_n_0 ),
-        .I3(\cnt_t_3_reg_n_0_[4] ),
-        .I4(\cnt_t_3[4]_i_12_n_0 ),
+        .I1(\cnt_t_3[4]_i_12__0_n_0 ),
+        .I2(\cnt_t_3_reg_n_0_[4] ),
+        .I3(\cnt_t_3[4]_i_14__1_n_0 ),
+        .I4(\n1q_m_2_reg_n_0_[2] ),
         .I5(p_0_in),
         .O(\pDataOutRaw[9]_i_2__0_n_0 ));
   FDRE \pDataOutRaw_reg[0] 
@@ -2560,7 +2827,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I1(\pDataOut_1_reg_n_0_[1] ),
         .I2(p_0_in0_in),
         .O(\q_m_2[2]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \q_m_2[3]_i_1__0 
@@ -2570,7 +2837,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I3(\pDataOut_1_reg_n_0_[0] ),
         .I4(p_0_in2_in),
         .O(\q_m_2[3]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT5 #(
     .INIT(32'h96696996)) 
     \q_m_2[4]_i_1__0 
@@ -2580,7 +2847,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I3(p_0_in0_in),
         .I4(p_0_in4_in),
         .O(\q_m_2[4]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \q_m_2[5]_i_1__0 
@@ -2588,7 +2855,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I1(\q_m_2[7]_i_2__0_n_0 ),
         .I2(p_0_in6_in),
         .O(\q_m_2[5]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \q_m_2[6]_i_1__1 
@@ -2596,7 +2863,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I1(\q_m_2[7]_i_2__0_n_0 ),
         .I2(p_0_in6_in),
         .O(\q_m_2[6]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'h96696996)) 
     \q_m_2[7]_i_1__1 
@@ -2606,7 +2873,7 @@ module rgb2dvi_0_TMDS_Encoder_1
         .I3(p_0_in10_in),
         .I4(p_0_in8_in),
         .O(\q_m_2[7]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \q_m_2[7]_i_2__0 
@@ -2699,18 +2966,21 @@ module rgb2dvi_0_TMDS_Encoder_3
   wire \cnt_t_3[2]_i_2_n_0 ;
   wire \cnt_t_3[2]_i_3__1_n_0 ;
   wire \cnt_t_3[2]_i_4__1_n_0 ;
-  wire \cnt_t_3[3]_i_2__0_n_0 ;
+  wire \cnt_t_3[3]_i_2_n_0 ;
   wire \cnt_t_3[3]_i_3__1_n_0 ;
   wire \cnt_t_3[3]_i_4__1_n_0 ;
   wire \cnt_t_3[3]_i_5__1_n_0 ;
-  wire \cnt_t_3[3]_i_6__0_n_0 ;
-  wire \cnt_t_3[3]_i_7__0_n_0 ;
-  wire \cnt_t_3[4]_i_2__0_n_0 ;
-  wire \cnt_t_3[4]_i_3__0_n_0 ;
+  wire \cnt_t_3[4]_i_10__1_n_0 ;
+  wire \cnt_t_3[4]_i_11__1_n_0 ;
+  wire \cnt_t_3[4]_i_12__1_n_0 ;
+  wire \cnt_t_3[4]_i_13__1_n_0 ;
+  wire \cnt_t_3[4]_i_14__0_n_0 ;
+  wire \cnt_t_3[4]_i_2__1_n_0 ;
+  wire \cnt_t_3[4]_i_3__1_n_0 ;
   wire \cnt_t_3[4]_i_4__1_n_0 ;
   wire \cnt_t_3[4]_i_5__1_n_0 ;
   wire \cnt_t_3[4]_i_6__0_n_0 ;
-  wire \cnt_t_3[4]_i_7__1_n_0 ;
+  wire \cnt_t_3[4]_i_7__0_n_0 ;
   wire \cnt_t_3[4]_i_8__1_n_0 ;
   wire \cnt_t_3[4]_i_9__1_n_0 ;
   wire \cnt_t_3_reg_n_0_[1] ;
@@ -2789,26 +3059,26 @@ module rgb2dvi_0_TMDS_Encoder_3
   wire [7:0]vid_pData;
 
   LUT6 #(
-    .INIT(64'h9669966969969696)) 
+    .INIT(64'h9696696969969696)) 
     \cnt_t_3[1]_i_1__1 
        (.I0(\n1q_m_2_reg_n_0_[1] ),
         .I1(\n0q_m_2_reg_n_0_[1] ),
         .I2(\cnt_t_3_reg_n_0_[1] ),
-        .I3(\cnt_t_3[3]_i_4__1_n_0 ),
-        .I4(\cnt_t_3[2]_i_4__1_n_0 ),
+        .I3(\cnt_t_3[2]_i_3__1_n_0 ),
+        .I4(\cnt_t_3[4]_i_5__1_n_0 ),
         .I5(p_0_in),
         .O(cnt_t_2[1]));
   LUT6 #(
-    .INIT(64'h59A959599A959595)) 
+    .INIT(64'h5AA955599AA59555)) 
     \cnt_t_3[2]_i_1__1 
        (.I0(\cnt_t_3[2]_i_2_n_0 ),
         .I1(\cnt_t_3[2]_i_3__1_n_0 ),
-        .I2(\cnt_t_3_reg_n_0_[1] ),
-        .I3(\cnt_t_3[3]_i_4__1_n_0 ),
+        .I2(p_0_in),
+        .I3(\cnt_t_3_reg_n_0_[1] ),
         .I4(\cnt_t_3[2]_i_4__1_n_0 ),
-        .I5(p_0_in),
+        .I5(\cnt_t_3[4]_i_5__1_n_0 ),
         .O(cnt_t_2[2]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT5 #(
     .INIT(32'h69966969)) 
     \cnt_t_3[2]_i_2 
@@ -2818,159 +3088,195 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I3(\n0q_m_2_reg_n_0_[1] ),
         .I4(\n1q_m_2_reg_n_0_[1] ),
         .O(\cnt_t_3[2]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT6 #(
+    .INIT(64'hFFFE0000FFFEFFFE)) 
+    \cnt_t_3[2]_i_3__1 
+       (.I0(\cnt_t_3_reg_n_0_[3] ),
+        .I1(\cnt_t_3_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[2] ),
+        .I3(\cnt_t_3_reg_n_0_[4] ),
+        .I4(\cnt_t_3[4]_i_10__1_n_0 ),
+        .I5(\n1q_m_2_reg_n_0_[2] ),
+        .O(\cnt_t_3[2]_i_3__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \cnt_t_3[2]_i_3__1 
+    \cnt_t_3[2]_i_4__1 
        (.I0(\n1q_m_2_reg_n_0_[1] ),
         .I1(\n0q_m_2_reg_n_0_[1] ),
-        .O(\cnt_t_3[2]_i_3__1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFD0000FFFDFFFD)) 
-    \cnt_t_3[2]_i_4__1 
-       (.I0(\n1q_m_2_reg_n_0_[2] ),
-        .I1(\n1q_m_2_reg_n_0_[1] ),
-        .I2(\n1q_m_2_reg_n_0_[0] ),
-        .I3(\n1q_m_2_reg_n_0_[3] ),
-        .I4(\cnt_t_3_reg_n_0_[4] ),
-        .I5(\cnt_t_3[4]_i_5__1_n_0 ),
         .O(\cnt_t_3[2]_i_4__1_n_0 ));
   LUT6 #(
     .INIT(64'h555556A6AAAA56A6)) 
     \cnt_t_3[3]_i_1__1 
-       (.I0(\cnt_t_3[3]_i_2__0_n_0 ),
+       (.I0(\cnt_t_3[3]_i_2_n_0 ),
         .I1(\cnt_t_3[3]_i_3__1_n_0 ),
-        .I2(\cnt_t_3[3]_i_4__1_n_0 ),
-        .I3(\cnt_t_3[3]_i_5__1_n_0 ),
-        .I4(\cnt_t_3[4]_i_2__0_n_0 ),
-        .I5(\cnt_t_3[3]_i_6__0_n_0 ),
+        .I2(\cnt_t_3[4]_i_5__1_n_0 ),
+        .I3(\cnt_t_3[3]_i_4__1_n_0 ),
+        .I4(\cnt_t_3[4]_i_3__1_n_0 ),
+        .I5(\cnt_t_3[3]_i_5__1_n_0 ),
         .O(cnt_t_2[3]));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \cnt_t_3[3]_i_2__0 
+    \cnt_t_3[3]_i_2 
        (.I0(\cnt_t_3_reg_n_0_[3] ),
-        .I1(\cnt_t_3[4]_i_8__1_n_0 ),
-        .O(\cnt_t_3[3]_i_2__0_n_0 ));
+        .I1(\cnt_t_3[4]_i_9__1_n_0 ),
+        .O(\cnt_t_3[3]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h41D70000FFFF41D7)) 
+    .INIT(64'h099FFFFF0000099F)) 
     \cnt_t_3[3]_i_3__1 
-       (.I0(\cnt_t_3_reg_n_0_[1] ),
-        .I1(\n0q_m_2_reg_n_0_[1] ),
-        .I2(\n1q_m_2_reg_n_0_[1] ),
-        .I3(p_0_in),
-        .I4(\cnt_t_3[3]_i_7__0_n_0 ),
-        .I5(\cnt_t_3_reg_n_0_[2] ),
-        .O(\cnt_t_3[3]_i_3__1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFCABFCABFCABFCBB)) 
-    \cnt_t_3[3]_i_4__1 
-       (.I0(\cnt_t_3[4]_i_5__1_n_0 ),
-        .I1(\n1q_m_2_reg_n_0_[3] ),
-        .I2(\n1q_m_2_reg_n_0_[2] ),
-        .I3(\cnt_t_3_reg_n_0_[4] ),
-        .I4(\n1q_m_2_reg_n_0_[1] ),
-        .I5(\n1q_m_2_reg_n_0_[0] ),
-        .O(\cnt_t_3[3]_i_4__1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFEB82EB820000)) 
-    \cnt_t_3[3]_i_5__1 
-       (.I0(\cnt_t_3_reg_n_0_[1] ),
-        .I1(\n0q_m_2_reg_n_0_[1] ),
-        .I2(\n1q_m_2_reg_n_0_[1] ),
+       (.I0(\n0q_m_2_reg_n_0_[1] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[1] ),
         .I3(p_0_in),
         .I4(\cnt_t_3_reg_n_0_[2] ),
-        .I5(\cnt_t_3[3]_i_7__0_n_0 ),
-        .O(\cnt_t_3[3]_i_5__1_n_0 ));
+        .I5(\cnt_t_3[4]_i_8__1_n_0 ),
+        .O(\cnt_t_3[3]_i_3__1_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFF990F9900000)) 
+    \cnt_t_3[3]_i_4__1 
+       (.I0(\n0q_m_2_reg_n_0_[1] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[1] ),
+        .I3(p_0_in),
+        .I4(\cnt_t_3_reg_n_0_[2] ),
+        .I5(\cnt_t_3[4]_i_8__1_n_0 ),
+        .O(\cnt_t_3[3]_i_4__1_n_0 ));
   LUT6 #(
     .INIT(64'h9BBF04DF04DF9BBF)) 
-    \cnt_t_3[3]_i_6__0 
+    \cnt_t_3[3]_i_5__1 
        (.I0(\n0q_m_2_reg_n_0_[1] ),
         .I1(\n1q_m_2_reg_n_0_[1] ),
         .I2(\cnt_t_3_reg_n_0_[1] ),
         .I3(\cnt_t_3_reg_n_0_[2] ),
         .I4(\n1q_m_2_reg_n_0_[2] ),
         .I5(\n0q_m_2_reg_n_0_[2] ),
-        .O(\cnt_t_3[3]_i_6__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
-  LUT4 #(
-    .INIT(16'hD22D)) 
-    \cnt_t_3[3]_i_7__0 
-       (.I0(\n1q_m_2_reg_n_0_[1] ),
-        .I1(\n0q_m_2_reg_n_0_[1] ),
-        .I2(\n0q_m_2_reg_n_0_[2] ),
-        .I3(\n1q_m_2_reg_n_0_[2] ),
-        .O(\cnt_t_3[3]_i_7__0_n_0 ));
-  LUT5 #(
-    .INIT(32'h04550404)) 
-    \cnt_t_3[4]_i_2__0 
-       (.I0(p_0_in),
-        .I1(\cnt_t_3[4]_i_5__1_n_0 ),
-        .I2(\cnt_t_3_reg_n_0_[4] ),
-        .I3(\cnt_t_3[4]_i_6__0_n_0 ),
-        .I4(\n1q_m_2_reg_n_0_[2] ),
-        .O(\cnt_t_3[4]_i_2__0_n_0 ));
-  LUT6 #(
-    .INIT(64'hF0B4873CC3B4870F)) 
-    \cnt_t_3[4]_i_3__0 
-       (.I0(\cnt_t_3[3]_i_5__1_n_0 ),
-        .I1(\cnt_t_3[3]_i_4__1_n_0 ),
-        .I2(\cnt_t_3[4]_i_7__1_n_0 ),
-        .I3(\cnt_t_3_reg_n_0_[3] ),
-        .I4(\cnt_t_3[4]_i_8__1_n_0 ),
-        .I5(\cnt_t_3[3]_i_3__1_n_0 ),
-        .O(\cnt_t_3[4]_i_3__0_n_0 ));
-  LUT6 #(
-    .INIT(64'hA96A95A96A56A96A)) 
-    \cnt_t_3[4]_i_4__1 
-       (.I0(\cnt_t_3_reg_n_0_[4] ),
-        .I1(\n0q_m_2_reg_n_0_[3] ),
-        .I2(\cnt_t_3[4]_i_9__1_n_0 ),
-        .I3(\n1q_m_2_reg_n_0_[3] ),
-        .I4(\cnt_t_3_reg_n_0_[3] ),
-        .I5(\cnt_t_3[3]_i_6__0_n_0 ),
-        .O(\cnt_t_3[4]_i_4__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+        .O(\cnt_t_3[3]_i_5__1_n_0 ));
   LUT3 #(
-    .INIT(8'h01)) 
-    \cnt_t_3[4]_i_5__1 
+    .INIT(8'hFE)) 
+    \cnt_t_3[4]_i_10__1 
+       (.I0(\n1q_m_2_reg_n_0_[3] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\n1q_m_2_reg_n_0_[0] ),
+        .O(\cnt_t_3[4]_i_10__1_n_0 ));
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \cnt_t_3[4]_i_11__1 
        (.I0(\cnt_t_3_reg_n_0_[3] ),
         .I1(\cnt_t_3_reg_n_0_[1] ),
         .I2(\cnt_t_3_reg_n_0_[2] ),
-        .O(\cnt_t_3[4]_i_5__1_n_0 ));
-  LUT3 #(
-    .INIT(8'hFE)) 
-    \cnt_t_3[4]_i_6__0 
-       (.I0(\n1q_m_2_reg_n_0_[1] ),
-        .I1(\n1q_m_2_reg_n_0_[0] ),
-        .I2(\n1q_m_2_reg_n_0_[3] ),
-        .O(\cnt_t_3[4]_i_6__0_n_0 ));
+        .O(\cnt_t_3[4]_i_11__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT4 #(
-    .INIT(16'hA665)) 
-    \cnt_t_3[4]_i_7__1 
-       (.I0(\cnt_t_3_reg_n_0_[4] ),
-        .I1(\n1q_m_2_reg_n_0_[3] ),
-        .I2(\cnt_t_3[4]_i_9__1_n_0 ),
-        .I3(\n0q_m_2_reg_n_0_[3] ),
-        .O(\cnt_t_3[4]_i_7__1_n_0 ));
-  LUT6 #(
-    .INIT(64'h9959AA9A66A65565)) 
-    \cnt_t_3[4]_i_8__1 
-       (.I0(\n1q_m_2_reg_n_0_[3] ),
-        .I1(\n0q_m_2_reg_n_0_[2] ),
-        .I2(\n1q_m_2_reg_n_0_[1] ),
-        .I3(\n0q_m_2_reg_n_0_[1] ),
-        .I4(\n1q_m_2_reg_n_0_[2] ),
-        .I5(\n0q_m_2_reg_n_0_[3] ),
-        .O(\cnt_t_3[4]_i_8__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+    .INIT(16'hF990)) 
+    \cnt_t_3[4]_i_12__1 
+       (.I0(\n0q_m_2_reg_n_0_[1] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[1] ),
+        .I3(p_0_in),
+        .O(\cnt_t_3[4]_i_12__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT4 #(
     .INIT(16'hA2FB)) 
-    \cnt_t_3[4]_i_9__1 
+    \cnt_t_3[4]_i_13__1 
        (.I0(\n0q_m_2_reg_n_0_[2] ),
         .I1(\n1q_m_2_reg_n_0_[1] ),
         .I2(\n0q_m_2_reg_n_0_[1] ),
         .I3(\n1q_m_2_reg_n_0_[2] ),
+        .O(\cnt_t_3[4]_i_13__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  LUT4 #(
+    .INIT(16'h099F)) 
+    \cnt_t_3[4]_i_14__0 
+       (.I0(\n0q_m_2_reg_n_0_[1] ),
+        .I1(\n1q_m_2_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[1] ),
+        .I3(p_0_in),
+        .O(\cnt_t_3[4]_i_14__0_n_0 ));
+  LUT6 #(
+    .INIT(64'h4744B8BB4777B888)) 
+    \cnt_t_3[4]_i_1__1 
+       (.I0(\cnt_t_3[4]_i_2__1_n_0 ),
+        .I1(\cnt_t_3[4]_i_3__1_n_0 ),
+        .I2(\cnt_t_3[4]_i_4__1_n_0 ),
+        .I3(\cnt_t_3[4]_i_5__1_n_0 ),
+        .I4(\cnt_t_3[4]_i_6__0_n_0 ),
+        .I5(\cnt_t_3[4]_i_7__0_n_0 ),
+        .O(cnt_t_2[4]));
+  LUT6 #(
+    .INIT(64'h80F80000FFFF80F8)) 
+    \cnt_t_3[4]_i_2__1 
+       (.I0(\cnt_t_3[2]_i_4__1_n_0 ),
+        .I1(\cnt_t_3_reg_n_0_[1] ),
+        .I2(\cnt_t_3_reg_n_0_[2] ),
+        .I3(\cnt_t_3[4]_i_8__1_n_0 ),
+        .I4(\cnt_t_3_reg_n_0_[3] ),
+        .I5(\cnt_t_3[4]_i_9__1_n_0 ),
+        .O(\cnt_t_3[4]_i_2__1_n_0 ));
+  LUT5 #(
+    .INIT(32'h04040455)) 
+    \cnt_t_3[4]_i_3__1 
+       (.I0(p_0_in),
+        .I1(\n1q_m_2_reg_n_0_[2] ),
+        .I2(\cnt_t_3[4]_i_10__1_n_0 ),
+        .I3(\cnt_t_3_reg_n_0_[4] ),
+        .I4(\cnt_t_3[4]_i_11__1_n_0 ),
+        .O(\cnt_t_3[4]_i_3__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT5 #(
+    .INIT(32'h11171777)) 
+    \cnt_t_3[4]_i_4__1 
+       (.I0(\cnt_t_3_reg_n_0_[3] ),
+        .I1(\cnt_t_3[4]_i_9__1_n_0 ),
+        .I2(\cnt_t_3[4]_i_12__1_n_0 ),
+        .I3(\cnt_t_3_reg_n_0_[2] ),
+        .I4(\cnt_t_3[4]_i_8__1_n_0 ),
+        .O(\cnt_t_3[4]_i_4__1_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFF00555755FF)) 
+    \cnt_t_3[4]_i_5__1 
+       (.I0(\cnt_t_3[4]_i_11__1_n_0 ),
+        .I1(\n1q_m_2_reg_n_0_[0] ),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
+        .I3(\n1q_m_2_reg_n_0_[3] ),
+        .I4(\n1q_m_2_reg_n_0_[2] ),
+        .I5(\cnt_t_3_reg_n_0_[4] ),
+        .O(\cnt_t_3[4]_i_5__1_n_0 ));
+  LUT4 #(
+    .INIT(16'h95A9)) 
+    \cnt_t_3[4]_i_6__0 
+       (.I0(\cnt_t_3_reg_n_0_[4] ),
+        .I1(\n0q_m_2_reg_n_0_[3] ),
+        .I2(\cnt_t_3[4]_i_13__1_n_0 ),
+        .I3(\n1q_m_2_reg_n_0_[3] ),
+        .O(\cnt_t_3[4]_i_6__0_n_0 ));
+  LUT5 #(
+    .INIT(32'h4DFF004D)) 
+    \cnt_t_3[4]_i_7__0 
+       (.I0(\cnt_t_3[4]_i_14__0_n_0 ),
+        .I1(\cnt_t_3_reg_n_0_[2] ),
+        .I2(\cnt_t_3[4]_i_8__1_n_0 ),
+        .I3(\cnt_t_3[4]_i_9__1_n_0 ),
+        .I4(\cnt_t_3_reg_n_0_[3] ),
+        .O(\cnt_t_3[4]_i_7__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT4 #(
+    .INIT(16'hD22D)) 
+    \cnt_t_3[4]_i_8__1 
+       (.I0(\n1q_m_2_reg_n_0_[1] ),
+        .I1(\n0q_m_2_reg_n_0_[1] ),
+        .I2(\n0q_m_2_reg_n_0_[2] ),
+        .I3(\n1q_m_2_reg_n_0_[2] ),
+        .O(\cnt_t_3[4]_i_8__1_n_0 ));
+  LUT6 #(
+    .INIT(64'hDF4520BA20BADF45)) 
+    \cnt_t_3[4]_i_9__1 
+       (.I0(\n1q_m_2_reg_n_0_[2] ),
+        .I1(\n0q_m_2_reg_n_0_[1] ),
+        .I2(\n1q_m_2_reg_n_0_[1] ),
+        .I3(\n0q_m_2_reg_n_0_[2] ),
+        .I4(\n0q_m_2_reg_n_0_[3] ),
+        .I5(\n1q_m_2_reg_n_0_[3] ),
         .O(\cnt_t_3[4]_i_9__1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -3004,11 +3310,6 @@ module rgb2dvi_0_TMDS_Encoder_3
         .D(cnt_t_2[4]),
         .Q(\cnt_t_3_reg_n_0_[4] ),
         .R(SR));
-  MUXF7 \cnt_t_3_reg[4]_i_1 
-       (.I0(\cnt_t_3[4]_i_3__0_n_0 ),
-        .I1(\cnt_t_3[4]_i_4__1_n_0 ),
-        .O(cnt_t_2[4]),
-        .S(\cnt_t_3[4]_i_2__0_n_0 ));
   LUT6 #(
     .INIT(64'h6696696696996696)) 
     \n0q_m_2[1]_i_1__1 
@@ -3067,7 +3368,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I4(vid_pData[6]),
         .I5(vid_pData[4]),
         .O(\n1d_1[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \n1d_1[0]_i_2 
@@ -3129,7 +3430,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I4(vid_pData[0]),
         .I5(\n1d_1[0]_i_2_n_0 ),
         .O(\n1d_1[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT5 #(
     .INIT(32'hE88E8EE8)) 
     \n1d_1[3]_i_3 
@@ -3210,7 +3511,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I4(\pDataOut_1_reg_n_0_[0] ),
         .I5(\n1q_m_2[3]_i_6_n_0 ),
         .O(\n1q_m_2[3]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT5 #(
     .INIT(32'h8E71718E)) 
     \n1q_m_2[3]_i_2__1 
@@ -3220,7 +3521,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I3(\pDataOut_1_reg_n_0_[0] ),
         .I4(\pDataOut_1_reg_n_0_[1] ),
         .O(\n1q_m_2[3]_i_2__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT4 #(
     .INIT(16'h5695)) 
     \n1q_m_2[3]_i_3__1 
@@ -3229,7 +3530,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I2(\q_m_2[8]_i_1__1_n_0 ),
         .I3(p_0_in8_in),
         .O(\n1q_m_2[3]_i_3__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \n1q_m_2[3]_i_4 
@@ -3237,7 +3538,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I1(\q_m_2[8]_i_1__1_n_0 ),
         .I2(\q_m_2[7]_i_2__1_n_0 ),
         .O(\n1q_m_2[3]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \n1q_m_2[3]_i_5__1 
@@ -3245,7 +3546,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I1(\pDataOut_1_reg_n_0_[0] ),
         .I2(p_0_in2_in),
         .O(\n1q_m_2[3]_i_5__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \n1q_m_2[3]_i_6 
@@ -3279,7 +3580,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .D(\n1q_m_2[3]_i_1__1_n_0 ),
         .Q(\n1q_m_2_reg_n_0_[3] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \pDataOutRaw[0]_i_1__0 
@@ -3292,63 +3593,62 @@ module rgb2dvi_0_TMDS_Encoder_3
        (.I0(\pDataOutRaw[9]_i_2__1_n_0 ),
         .I1(\q_m_2_reg_n_0_[1] ),
         .O(\pDataOutRaw[1]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT3 #(
-    .INIT(8'h39)) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
     \pDataOutRaw[2]_i_1__1 
-       (.I0(\cnt_t_3[3]_i_4__1_n_0 ),
-        .I1(\q_m_2_reg_n_0_[2] ),
-        .I2(\cnt_t_3[4]_i_2__0_n_0 ),
+       (.I0(\q_m_2_reg_n_0_[2] ),
+        .I1(\pDataOutRaw[9]_i_2__1_n_0 ),
         .O(\pDataOutRaw[2]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \pDataOutRaw[3]_i_1__0 
        (.I0(\pDataOutRaw[9]_i_2__1_n_0 ),
         .I1(\q_m_2_reg_n_0_[3] ),
         .O(\pDataOutRaw[3]_i_1__0_n_0 ));
-  LUT3 #(
-    .INIT(8'h39)) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
     \pDataOutRaw[4]_i_1__1 
-       (.I0(\cnt_t_3[3]_i_4__1_n_0 ),
-        .I1(\q_m_2_reg_n_0_[4] ),
-        .I2(\cnt_t_3[4]_i_2__0_n_0 ),
+       (.I0(\q_m_2_reg_n_0_[4] ),
+        .I1(\pDataOutRaw[9]_i_2__1_n_0 ),
         .O(\pDataOutRaw[4]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \pDataOutRaw[5]_i_1__0 
        (.I0(\pDataOutRaw[9]_i_2__1_n_0 ),
         .I1(\q_m_2_reg_n_0_[5] ),
         .O(\pDataOutRaw[5]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT3 #(
-    .INIT(8'h39)) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
     \pDataOutRaw[6]_i_1__1 
-       (.I0(\cnt_t_3[3]_i_4__1_n_0 ),
-        .I1(\q_m_2_reg_n_0_[6] ),
-        .I2(\cnt_t_3[4]_i_2__0_n_0 ),
+       (.I0(\q_m_2_reg_n_0_[6] ),
+        .I1(\pDataOutRaw[9]_i_2__1_n_0 ),
         .O(\pDataOutRaw[6]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \pDataOutRaw[7]_i_1__0 
        (.I0(\pDataOutRaw[9]_i_2__1_n_0 ),
         .I1(\q_m_2_reg_n_0_[7] ),
         .O(\pDataOutRaw[7]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \pDataOutRaw[9]_i_1__0 
        (.I0(\pDataOutRaw[9]_i_2__1_n_0 ),
         .O(\pDataOutRaw[9]_i_1__0_n_0 ));
   LUT6 #(
-    .INIT(64'hEEFFEE1FE200E213)) 
+    .INIT(64'hF3FFA7AFF000A4AC)) 
     \pDataOutRaw[9]_i_2__1 
        (.I0(\n1q_m_2_reg_n_0_[3] ),
-        .I1(\n1q_m_2_reg_n_0_[2] ),
-        .I2(\cnt_t_3[4]_i_6__0_n_0 ),
-        .I3(\cnt_t_3_reg_n_0_[4] ),
-        .I4(\cnt_t_3[4]_i_5__1_n_0 ),
+        .I1(\cnt_t_3[4]_i_11__1_n_0 ),
+        .I2(\cnt_t_3_reg_n_0_[4] ),
+        .I3(\cnt_t_3[4]_i_10__1_n_0 ),
+        .I4(\n1q_m_2_reg_n_0_[2] ),
         .I5(p_0_in),
         .O(\pDataOutRaw[9]_i_2__1_n_0 ));
   FDRE \pDataOutRaw_reg[0] 
@@ -3469,7 +3769,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I4(\n1d_1_reg_n_0_[1] ),
         .I5(\pDataOut_1_reg_n_0_[0] ),
         .O(\q_m_2[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \q_m_2[2]_i_1__1 
@@ -3477,7 +3777,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I1(\pDataOut_1_reg_n_0_[0] ),
         .I2(\pDataOut_1_reg_n_0_[1] ),
         .O(\q_m_2[2]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \q_m_2[3]_i_1__1 
@@ -3487,7 +3787,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I3(\pDataOut_1_reg_n_0_[0] ),
         .I4(\pDataOut_1_reg_n_0_[1] ),
         .O(\q_m_2[3]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT5 #(
     .INIT(32'h96696996)) 
     \q_m_2[4]_i_1__1 
@@ -3497,7 +3797,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I3(\pDataOut_1_reg_n_0_[1] ),
         .I4(p_0_in4_in),
         .O(\q_m_2[4]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'h96)) 
     \q_m_2[5]_i_1__1 
@@ -3505,7 +3805,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I1(p_0_in6_in),
         .I2(\q_m_2[8]_i_1__1_n_0 ),
         .O(\q_m_2[5]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \q_m_2[6]_i_1 
@@ -3513,7 +3813,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I1(p_0_in6_in),
         .I2(p_0_in8_in),
         .O(\q_m_2[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT5 #(
     .INIT(32'h96696996)) 
     \q_m_2[7]_i_1 
@@ -3523,7 +3823,7 @@ module rgb2dvi_0_TMDS_Encoder_3
         .I3(p_0_in6_in),
         .I4(\q_m_2[8]_i_1__1_n_0 ),
         .O(\q_m_2[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT5 #(
     .INIT(32'h69969669)) 
     \q_m_2[7]_i_2__1 
@@ -3598,8 +3898,8 @@ module rgb2dvi_0_TMDS_Encoder_3
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "rgb2dvi" *) (* kClkPrimitive = "MMCM" *) (* kClkRange = "1" *) 
-(* kGenerateSerialClk = "FALSE" *) (* kRstActiveHigh = "FALSE" *) 
+(* ORIG_REF_NAME = "rgb2dvi" *) (* kClkPrimitive = "PLL" *) (* kClkRange = "1" *) 
+(* kGenerateSerialClk = "TRUE" *) (* kRstActiveHigh = "FALSE" *) 
 module rgb2dvi_0_rgb2dvi
    (TMDS_Clk_p,
     TMDS_Clk_n,
@@ -3627,11 +3927,13 @@ module rgb2dvi_0_rgb2dvi
   input SerialClk;
 
   wire PixelClk;
-  wire SerialClk;
+  wire PixelClkIO;
+  wire SerialClkIO;
   wire TMDS_Clk_n;
   wire TMDS_Clk_p;
   wire [2:0]TMDS_Data_n;
   wire [2:0]TMDS_Data_p;
+  wire aRstLck;
   wire aRst_n;
   wire [9:0]\pDataOutRaw[0] ;
   wire [9:0]\pDataOutRaw[1] ;
@@ -3643,9 +3945,15 @@ module rgb2dvi_0_rgb2dvi
   wire vid_pVDE;
   wire vid_pVSync;
 
+  rgb2dvi_0_ClockGen \ClockGenInternal.ClockGenX 
+       (.PixelClk(PixelClkIO),
+        .SerialClk(SerialClkIO),
+        .aRst_n(aRst_n),
+        .in0(aRstLck),
+        .\oSyncStages_reg[1] (PixelClk));
   rgb2dvi_0_OutputSERDES ClockSerializer
-       (.PixelClk(PixelClk),
-        .SerialClk(SerialClk),
+       (.PixelClk(PixelClkIO),
+        .SerialClk(SerialClkIO),
         .TMDS_Clk_n(TMDS_Clk_n),
         .TMDS_Clk_p(TMDS_Clk_p),
         .aRst(pRstLck));
@@ -3658,8 +3966,8 @@ module rgb2dvi_0_rgb2dvi
         .vid_pVDE(vid_pVDE),
         .vid_pVSync(vid_pVSync));
   rgb2dvi_0_OutputSERDES_0 \DataEncoders[0].DataSerializer 
-       (.PixelClk(PixelClk),
-        .SerialClk(SerialClk),
+       (.PixelClk(PixelClkIO),
+        .SerialClk(SerialClkIO),
         .TMDS_Data_n(TMDS_Data_n[0]),
         .TMDS_Data_p(TMDS_Data_p[0]),
         .aRst(pRstLck),
@@ -3670,8 +3978,8 @@ module rgb2dvi_0_rgb2dvi
         .SR(p_1_in),
         .vid_pData(vid_pData[7:0]));
   rgb2dvi_0_OutputSERDES_2 \DataEncoders[1].DataSerializer 
-       (.PixelClk(PixelClk),
-        .SerialClk(SerialClk),
+       (.PixelClk(PixelClkIO),
+        .SerialClk(SerialClkIO),
         .TMDS_Data_n(TMDS_Data_n[1]),
         .TMDS_Data_p(TMDS_Data_p[1]),
         .out(pRstLck),
@@ -3682,15 +3990,15 @@ module rgb2dvi_0_rgb2dvi
         .SR(p_1_in),
         .vid_pData(vid_pData[23:16]));
   rgb2dvi_0_OutputSERDES_4 \DataEncoders[2].DataSerializer 
-       (.PixelClk(PixelClk),
-        .SerialClk(SerialClk),
+       (.PixelClk(PixelClkIO),
+        .SerialClk(SerialClkIO),
         .TMDS_Data_n(TMDS_Data_n[2]),
         .TMDS_Data_p(TMDS_Data_p[2]),
         .out(pRstLck),
         .pDataOut(\pDataOutRaw[2] ));
   rgb2dvi_0_ResetBridge LockLostReset
        (.PixelClk(PixelClk),
-        .aRst_n(aRst_n),
+        .in0(aRstLck),
         .out(pRstLck));
 endmodule
 `ifndef GLBL

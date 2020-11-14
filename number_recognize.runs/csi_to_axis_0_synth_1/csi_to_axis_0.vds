@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Nov 14 09:53:14 2020
+# Process ID: 21040
+# Current directory: D:/xilinix_lab/number_recognize/number_recognize.runs/csi_to_axis_0_synth_1
+# Command line: vivado.exe -log csi_to_axis_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source csi_to_axis_0.tcl
+# Log file: D:/xilinix_lab/number_recognize/number_recognize.runs/csi_to_axis_0_synth_1/csi_to_axis_0.vds
+# Journal file: D:/xilinix_lab/number_recognize/number_recognize.runs/csi_to_axis_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source csi_to_axis_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/xilinix_lab/IP_Core'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xilinx/Vivado/2018.3/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP csi_to_axis_0, cache-ID = 31328b2bd49a756f.
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 14 09:53:22 2020...

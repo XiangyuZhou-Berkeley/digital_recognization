@@ -8,10 +8,11 @@ vmap xil_defaultlib modelsim_lib/msim/xil_defaultlib
 vmap xpm modelsim_lib/msim/xpm
 
 vlog -work xil_defaultlib -64 -incr -sv \
-"D:/xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"D:/xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"D:/xilinx/Vivado/2018.3/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -64 -93 \
-"D:/xilinx/Vivado/2018.2/data/ip/xpm/xpm_VCOMP.vhd" \
+"D:/xilinx/Vivado/2018.3/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xil_defaultlib -64 -93 \
 "../../../ipstatic/src/ClockGen.vhd" \

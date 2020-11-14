@@ -27,10 +27,11 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/xilinix_lab/number_recognize/number_recognize.cache/wt [current_project]
 set_property parent.project_path D:/xilinix_lab/number_recognize/number_recognize.xpr [current_project]
-set_property XPM_LIBRARIES XPM_CDC [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths d:/xilinix_lab/IP_Core [current_project]
+update_ip_catalog
 set_property ip_output_repo d:/xilinix_lab/number_recognize/number_recognize.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_ip -quiet d:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
@@ -48,7 +49,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
-set_param ips.enableIPCacheLiteLoad 0
+set_param ips.enableIPCacheLiteLoad 1
 
 set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir D:/xilinix_lab/number_recognize/number_recognize.runs/clk_wiz_0_synth_1 -new_name clk_wiz_0 -ip [get_ips clk_wiz_0]]
 

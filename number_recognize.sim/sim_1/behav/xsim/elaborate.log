@@ -1,0 +1,98 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: D:/xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 5d22f3b92a914c23be7dcee83aecbe6d --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_2 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot main_behav xil_defaultlib.main xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3715] size mismatch in mixed language port association, vhdl port 'enable_in' [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_MIPI.v:103]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package xil_defaultlib.dvi_constants
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=10,clki...]
+Compiling architecture behavioral of entity xil_defaultlib.SyncAsync [\SyncAsync(kresetto='1')\]
+Compiling architecture behavioral of entity xil_defaultlib.ResetBridge [resetbridge_default]
+Compiling architecture behavioral of entity xil_defaultlib.SyncAsync [syncasync_default]
+Compiling architecture behavioral of entity xil_defaultlib.ClockGen [\ClockGen(kclkprimitive="PLL")(1...]
+Compiling architecture behavioral of entity xil_defaultlib.TMDS_Encoder [tmds_encoder_default]
+Compiling architecture obufds_v of entity unisim.OBUFDS [\OBUFDS(iostandard="TMDS_33")(1,...]
+Compiling secureip modules ...
+Compiling architecture oserdese2_v of entity unisim.OSERDESE2 [\OSERDESE2(data_rate_tq="SDR",da...]
+Compiling architecture oserdese2_v of entity unisim.OSERDESE2 [\OSERDESE2(data_rate_tq="SDR",da...]
+Compiling architecture behavioral of entity xil_defaultlib.OutputSERDES [outputserdes_default]
+Compiling architecture behavioral of entity xil_defaultlib.rgb2dvi [\rgb2dvi(kclkprimitive="PLL",krs...]
+Compiling architecture rgb2dvi_0_arch of entity xil_defaultlib.rgb2dvi_0 [rgb2dvi_0_default]
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module xil_defaultlib.clk_wiz_1_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_1
+Compiling architecture idelayctrl_v of entity unisim.IDELAYCTRL [\IDELAYCTRL(1,7)\]
+Compiling secureip modules ...
+Compiling architecture iserdese2_v of entity unisim.ISERDESE2 [\ISERDESE2(data_width=8,interfac...]
+Compiling architecture arch_imp of entity xil_defaultlib.line_if [line_if_default]
+Compiling architecture idelaye2_v of entity unisim.IDELAYE2 [\IDELAYE2(high_performance_mode=...]
+Compiling architecture bufgctrl_v of entity unisim.BUFGCTRL [\BUFGCTRL(1,4)(1,4)\]
+Compiling architecture ibufds_v of entity unisim.IBUFDS [\IBUFDS(1,9)(1,5)(1,1)(1,4)(1,7)...]
+Compiling architecture ibufgds_v of entity unisim.IBUFGDS [\IBUFGDS(1,9)(1,1)(1,7)\]
+Compiling architecture bufgctrl_v of entity unisim.BUFGCTRL [\BUFGCTRL(preselect_i0=true)(1,4...]
+Compiling architecture bufgctrl_v of entity unisim.BUFGCTRL [\BUFGCTRL(init_out=1,preselect_i...]
+Compiling architecture inv_v of entity unisim.INV [inv_default]
+Compiling architecture bufmrce_v of entity unisim.BUFMRCE [\BUFMRCE(ce_type="ASYNC")(1,5)\]
+Compiling architecture bufio_v of entity unisim.BUFIO [bufio_default]
+Compiling architecture bufr_v of entity unisim.BUFR [\BUFR(bufr_divide="4")(1,1)(1,7)...]
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture arch_imp of entity xil_defaultlib.phy_clock_system [\phy_clock_system(c_use_delay=tr...]
+Compiling architecture behavioral of entity xil_defaultlib.csi2_d_phy_rx [\csi2_d_phy_rx(c_add_idelayctrl=...]
+Compiling architecture csi2_d_phy_rx_0_arch of entity xil_defaultlib.csi2_d_phy_rx_0 [csi2_d_phy_rx_0_default]
+Compiling architecture arch_imp of entity xil_defaultlib.lane_align [\lane_align(c_timeout=255)\]
+Compiling architecture arch_imp of entity xil_defaultlib.lane_merge [lane_merge_default]
+Compiling architecture arch_imp of entity xil_defaultlib.csi2_parser [csi2_parser_default]
+Compiling architecture arch_imp of entity xil_defaultlib.csi_to_axis_v1_0 [\csi_to_axis_v1_0(c_timeout=255)...]
+Compiling architecture csi_to_axis_0_arch of entity xil_defaultlib.csi_to_axis_0 [csi_to_axis_0_default]
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="spa...
+Compiling module xil_defaultlib.AXIS_Data_RAM
+Compiling module xil_defaultlib.Driver_Csi_To_Dvp
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="spa...
+Compiling module xil_defaultlib.RAM_Line
+Compiling module xil_defaultlib.Driver_Bayer_To_RGB
+Compiling module xil_defaultlib.Driver_MIPI
+Compiling module unisims_ver.IOBUF
+Compiling module xil_defaultlib.ROM_OV5647
+Compiling module xil_defaultlib.Trigger_Generator
+Compiling module xil_defaultlib.OV5647_Init
+Compiling module xil_defaultlib.Driver_IIC_default
+Compiling module xil_defaultlib.RGB2Binary
+Compiling module xil_defaultlib.posedge_detection
+Compiling module xil_defaultlib.num2digital
+Compiling module xil_defaultlib.recognize_default
+Compiling module xil_defaultlib.Num_Display
+Compiling module xil_defaultlib.Clk_Division
+Compiling module xil_defaultlib.Clk_Division_0
+Compiling module xil_defaultlib.Driver_SK6805
+Compiling module xil_defaultlib.Driver_SK6805_0
+Compiling module xil_defaultlib.Rgb_Led
+Compiling module xil_defaultlib.pre_recognize
+Compiling module xil_defaultlib.main
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot main_behav

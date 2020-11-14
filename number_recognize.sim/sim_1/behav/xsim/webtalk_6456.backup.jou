@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Nov 14 09:57:31 2020
+# Process ID: 6456
+# Current directory: D:/xilinix_lab/number_recognize/number_recognize.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source D:/xilinix_lab/number_recognize/number_recognize.sim/sim_1/behav/xsim/xsim.dir/main_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/xilinix_lab/number_recognize/number_recognize.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: D:/xilinix_lab/number_recognize/number_recognize.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source D:/xilinix_lab/number_recognize/number_recognize.sim/sim_1/behav/xsim/xsim.dir/main_behav/webtalk/xsim_webtalk.tcl -notrace

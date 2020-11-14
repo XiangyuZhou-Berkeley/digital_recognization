@@ -1,0 +1,12 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+Block Memory Generator module main.MIPI_Trans_Driver.Driver_Csi_To_Dvp0.RAM_AXIS.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module main.MIPI_Trans_Driver.Driver_Bayer_To_RGB0.RAM_Line_Buff0.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module main.MIPI_Trans_Driver.Driver_Bayer_To_RGB0.RAM_Line_Buff1.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module main.MIPI_Trans_Driver.Driver_Bayer_To_RGB0.RAM_Line_Buff2.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 6  Process: /main/Mini_HDMI_Driver/U0/\DataEncoders(0)\/DataEncoder/line__154  File: D:/xilinix_lab/number_recognize/number_recognize.ip_user_files/ipstatic/src/TMDS_Encoder.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 6  Process: /main/Mini_HDMI_Driver/U0/\DataEncoders(1)\/DataEncoder/line__154  File: D:/xilinix_lab/number_recognize/number_recognize.ip_user_files/ipstatic/src/TMDS_Encoder.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 6  Process: /main/Mini_HDMI_Driver/U0/\DataEncoders(2)\/DataEncoder/line__154  File: D:/xilinix_lab/number_recognize/number_recognize.ip_user_files/ipstatic/src/TMDS_Encoder.vhd

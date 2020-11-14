@@ -1,0 +1,22 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../number_recognize.ip_user_files/ipstatic/hdl/csi2_parser.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/hdl/lane_align.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/hdl/lane_merge.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/hdl/csi_to_axis_v1_0.vhd" \
+"../../../../number_recognize.srcs/sources_1/ip/csi_to_axis_0/sim/csi_to_axis_0.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/hdl/phy_clock_system.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/hdl/line_if.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/hdl/csi2_d_phy_rx.vhd" \
+"../../../../number_recognize.srcs/sources_1/ip/csi2_d_phy_rx_0/sim/csi2_d_phy_rx_0.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/src/ClockGen.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/src/SyncAsync.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/src/SyncAsyncReset.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/src/DVI_Constants.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/src/OutputSERDES.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/src/TMDS_Encoder.vhd" \
+"../../../../number_recognize.ip_user_files/ipstatic/src/rgb2dvi.vhd" \
+"../../../../number_recognize.srcs/sources_1/ip/rgb2dvi_0/sim/rgb2dvi_0.vhd" \
+
+# Do not sort compile order
+nosort
