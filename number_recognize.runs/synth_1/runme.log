@@ -12,28 +12,29 @@ source main.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/xilinix_lab/IP_Core'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xilinx/Vivado/2018.3/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 351.699 ; gain = 33.320
 Command: synth_design -top main -part xc7s15ftgb196-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s15'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s15'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10168 
+INFO: Helper process launched with PID 14264 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 474.734 ; gain = 105.359
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 473.922 ; gain = 105.102
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/main.v:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'rgb2dvi_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/rgb2dvi_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'rgb2dvi_0' (2#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'rgb2dvi_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/rgb2dvi_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'rgb2dvi_0' (2#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/rgb2dvi_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'Driver_MIPI' [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_MIPI.v:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_1' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/clk_wiz_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_1' (3#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/clk_wiz_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'csi2_d_phy_rx_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/csi2_d_phy_rx_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'csi2_d_phy_rx_0' (4#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/csi2_d_phy_rx_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_1' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/clk_wiz_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_1' (3#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/clk_wiz_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'csi2_d_phy_rx_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/csi2_d_phy_rx_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'csi2_d_phy_rx_0' (4#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/csi2_d_phy_rx_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'Data_Read' of module 'csi2_d_phy_rx_0' requires 33 connections, but only 25 given [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_MIPI.v:75]
-INFO: [Synth 8-6157] synthesizing module 'csi_to_axis_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/csi_to_axis_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'csi_to_axis_0' (5#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/csi_to_axis_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'csi_to_axis_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/csi_to_axis_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'csi_to_axis_0' (5#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/csi_to_axis_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'Driver_Csi_To_Dvp' [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_Csi_To_Dvp.v:23]
 	Parameter Default_AXIS_TREADY bound to: 1'b1 
 	Parameter WIDTH bound to: 12 - type: integer 
@@ -47,8 +48,8 @@ INFO: [Synth 8-6157] synthesizing module 'Driver_Csi_To_Dvp' [D:/xilinix_lab/num
 	Parameter VMAX bound to: 750 - type: integer 
 	Parameter HSPP bound to: 0 - type: integer 
 	Parameter VSPP bound to: 0 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'AXIS_Data_RAM' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/AXIS_Data_RAM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'AXIS_Data_RAM' (6#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/AXIS_Data_RAM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'AXIS_Data_RAM' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/AXIS_Data_RAM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'AXIS_Data_RAM' (6#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/AXIS_Data_RAM_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'Driver_Csi_To_Dvp' (7#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_Csi_To_Dvp.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Driver_Bayer_To_RGB' [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_Bayer_To_RGB.v:23]
 	Parameter WIDTH bound to: 12 - type: integer 
@@ -70,8 +71,8 @@ INFO: [Synth 8-6157] synthesizing module 'Driver_Bayer_To_RGB' [D:/xilinix_lab/n
 	Parameter ST_IDLE_GR bound to: 3'b100 
 	Parameter ST_PATTERN2 bound to: 3'b101 
 	Parameter ST_PATTERN3 bound to: 3'b110 
-INFO: [Synth 8-6157] synthesizing module 'RAM_Line' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/RAM_Line_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'RAM_Line' (8#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/RAM_Line_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'RAM_Line' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/RAM_Line_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RAM_Line' (8#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/RAM_Line_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'Driver_Bayer_To_RGB' (9#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_Bayer_To_RGB.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'Driver_MIPI' (10#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Driver_MIPI.v:23]
 INFO: [Synth 8-6157] synthesizing module 'IOBUF' [D:/xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:23615]
@@ -149,19 +150,19 @@ INFO: [Synth 8-6157] synthesizing module 'num2digital' [D:/xilinix_lab/number_re
 INFO: [Synth 8-6155] done synthesizing module 'num2digital' (18#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/num2digital.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'recognize' (19#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/recognize.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Num_Display' [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Num_Display.v:23]
-WARNING: [Synth 8-6090] variable 'RGB_Data' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Num_Display.v:103]
+WARNING: [Synth 8-6090] variable 'RGB_Data' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Num_Display.v:100]
 INFO: [Synth 8-6155] done synthesizing module 'Num_Display' (20#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Num_Display.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Rgb_Led' [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Rgb_Led.v:23]
-INFO: [Synth 8-6157] synthesizing module 'Clk_Division_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/Clk_Division_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'Clk_Division_0' (21#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/Clk_Division_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'Driver_SK6805_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/Driver_SK6805_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'Driver_SK6805_0' (22#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-6344-LAPTOP-L9GKEMTI/realtime/Driver_SK6805_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Clk_Division_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/Clk_Division_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'Clk_Division_0' (21#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/Clk_Division_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Driver_SK6805_0' [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/Driver_SK6805_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'Driver_SK6805_0' (22#1) [D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/.Xil/Vivado-20476-LAPTOP-L9GKEMTI/realtime/Driver_SK6805_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'Rgb_Led' (23#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/Rgb_Led.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'pre_recognize' (24#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/pre_recognize.v:23]
 WARNING: [Synth 8-3848] Net iic_read in module/entity main does not have driver. [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/main.v:108]
 INFO: [Synth 8-6155] done synthesizing module 'main' (25#1) [D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/new/main.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 531.453 ; gain = 162.078
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 530.984 ; gain = 162.164
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -175,10 +176,10 @@ WARNING: [Synth 8-3295] tying undriven pin MIPI_Camera_IIC:i_iic_read to constan
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 531.453 ; gain = 162.078
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 530.984 ; gain = 162.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 531.453 ; gain = 162.078
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 530.984 ; gain = 162.164
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -218,29 +219,29 @@ Finished Parsing XDC File [D:/xilinix_lab/number_recognize/number_recognize.srcs
 WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/xilinix_lab/number_recognize/number_recognize.srcs/constrs_1/new/system.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/main_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/xilinix_lab/number_recognize/number_recognize.srcs/constrs_1/new/system.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 836.887 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 837.215 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 836.887 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 837.215 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 836.887 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 836.887 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 837.215 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 837.215 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'MIPI_Trans_Driver/Driver_Bayer_To_RGB0/RAM_Line_Buff0' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'MIPI_Trans_Driver/Driver_Bayer_To_RGB0/RAM_Line_Buff1' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'MIPI_Trans_Driver/Driver_Bayer_To_RGB0/RAM_Line_Buff2' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'MIPI_Trans_Driver/Driver_Csi_To_Dvp0/RAM_AXIS' at clock pin 'clka' is different from the actual clock period '4.761', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 836.887 ; gain = 467.512
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 837.215 ; gain = 468.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s15ftgb196-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 836.887 ; gain = 467.512
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 837.215 ; gain = 468.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -287,7 +288,7 @@ Applied set_property DONT_TOUCH = true for pre_recognize1/Rgb_led1/Clk_Division_
 Applied set_property DONT_TOUCH = true for pre_recognize1/Rgb_led1/Driver_SK6805_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for clk_10. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 836.887 ; gain = 467.512
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:23 . Memory (MB): peak = 837.215 ; gain = 468.395
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "vdata" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "addrb" won't be mapped to RAM because it is too sparse
@@ -313,7 +314,7 @@ INFO: [Synth 8-5546] ROM "sda_dir_o" won't be mapped to RAM because it is too sp
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_current_reg' using encoding 'sequential' in module 'Trigger_Generator'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 836.887 ; gain = 467.512
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:24 . Memory (MB): peak = 837.215 ; gain = 468.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -564,7 +565,7 @@ INFO: [Synth 8-3886] merging instance 'MIPI_Camera_IIC/buf_slave_addr_w_reg[1]' 
 INFO: [Synth 8-3886] merging instance 'MIPI_Camera_IIC/buf_slave_addr_w_reg[0]' (FDC) to 'MIPI_Camera_IIC/state_current_reg[4]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\MIPI_Camera_IIC/state_current_reg[4] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 836.887 ; gain = 467.512
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 837.215 ; gain = 468.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -597,13 +598,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_10/clk_out1' to pin '
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_10/clk_out2' to pin 'clk_10/bbstub_clk_out2/O'
 INFO: [Synth 8-5819] Moved 4 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 836.887 ; gain = 467.512
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:42 . Memory (MB): peak = 837.215 ; gain = 468.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 850.207 ; gain = 480.832
+Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 847.691 ; gain = 478.871
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -615,7 +616,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:44 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -640,7 +641,7 @@ INFO: [Synth 8-5365] Flop MIPI_Camera_IIC/sda_dir_o_reg is being inverted and re
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:45 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -653,7 +654,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:45 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -665,25 +666,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -776,17 +777,17 @@ Report Instance Areas:
 |13    |      dectct             |posedge_detection   |     7|
 +------+-------------------------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 860.891 ; gain = 492.070
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 862.250 ; gain = 187.441
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 862.250 ; gain = 492.875
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 860.891 ; gain = 185.840
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:46 . Memory (MB): peak = 860.891 ; gain = 492.070
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 71 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 862.250 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 860.891 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instances
@@ -794,10 +795,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 123 Infos, 16 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 862.250 ; gain = 504.914
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 862.250 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:50 . Memory (MB): peak = 860.891 ; gain = 504.246
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 860.891 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Nov 14 10:25:55 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 17 10:20:38 2020...

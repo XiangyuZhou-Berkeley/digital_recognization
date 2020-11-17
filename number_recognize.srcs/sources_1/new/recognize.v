@@ -29,26 +29,29 @@ module recognize(
     output [6:0] digital
     );
 parameter 
-    CENTER_H = 640,
-    CENTER_V = 360,
-    Vcnt_range = 266,
+    CENTER_H = 640,       //1280*720各取一半
+    CENTER_V = 360,       
+    Vcnt_range = 266,     //选区的检测范围，数字需要在中心这么大的范围
     Hcnt_range = 200,
     Hcnt_left_border=CENTER_H-100,
     Hcnt_right_border=CENTER_H+100,
     Vcnt_upper_border=CENTER_V-133,      
-    Vcnt_lower_border=CENTER_V+133,
+    Vcnt_lower_border=CENTER_V+133,   //四个检测范围的边界
     upper_scan = (CENTER_V-(Vcnt_range>>1))+((Vcnt_range*410)>>10),
     lower_scan = (CENTER_V-(Vcnt_range>>1))+((Vcnt_range*683)>>10);
-reg        upper_left,upper_right;
-reg        lower_left,lower_right;
+reg upper_left,upper_right;    
+reg lower_left,lower_right;        //四个检测区域的由白变黑的点数
 reg  [1:0] y,upper_points,lower_points;          
 wire posedge_sig;
-
+//检测由白变黑
 posedge_detection dectct(
    .clk(pclk),
    .i_data_in(Binary),
    .o_rising_edge(posedge_sig)
 );
+//左上边界变化点数
+//从上边界开始扫描，到中心，发现一个由白变黑点就+1
+//下面几个模块逻辑类似
 always@(posedge pclk) begin
 	if(VtcHCnt==Hcnt_left_border && VtcVCnt==Vcnt_upper_border) 
 	   upper_left<= 0;      
@@ -80,14 +83,15 @@ always@(posedge pclk) begin
 	   lower_right<= lower_right + posedge_sig;
     else
        lower_right<=lower_right; end 
-       
+//中心垂直处的扫描
 //vertical scan
 reg y_in1,y_in0; wire yposedge_sig;
 assign yposedge_sig = ~y_in1 & y_in0;
+//只有中线上才会检测由白变黑其他不变，逻辑和之前posedge相同，不过判断和检测一起写了
 always@(posedge pclk) begin
        if(VtcHCnt==Hcnt_left_border && VtcVCnt==Vcnt_upper_border) begin
-       y_in0<=0;
-       y_in1<=0;end
+          y_in0<=0;
+          y_in1<=0;end
        else if(VtcVCnt>Vcnt_upper_border && VtcVCnt<Vcnt_lower_border && VtcHCnt==CENTER_H )begin
           y_in0<=y_in1;
           y_in1<=Binary;end
@@ -104,7 +108,7 @@ always@(posedge pclk) begin
        else
             y<=y;
 end
-
+//统计上下两条线各有多少由白变黑点，方便之后区分数字
 always @(posedge pclk) begin
 upper_points <= upper_right + upper_left;
 lower_points <= lower_right + lower_left;
@@ -146,7 +150,7 @@ begin
             num <= num;
         end
 end
-
+//8段式发光二极管显示转换
 num2digital num2digital(
     //.pclk(pclk),
     .num(num),

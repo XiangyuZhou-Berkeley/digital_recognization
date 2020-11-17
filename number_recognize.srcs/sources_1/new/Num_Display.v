@@ -21,12 +21,9 @@
 
 
 module Num_Display(
-    //input clk,
     input [6:0]num,
     input [10:0]Set_X,
     input [9:0]Set_Y,
-    //input Mode,
-    //input [23:0]RGB_Raw,
     input Binary,
     output reg[23:0]RGB_Data//=24'hffff00    //RBG
     );

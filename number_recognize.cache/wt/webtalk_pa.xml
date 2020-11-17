@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sat Nov 14 10:56:30 2020">
+<application name="pa" timeStamp="Tue Nov 17 10:24:16 2020">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="9fab049d393446c1992e6a1cbb8aa655" type="ProjectID"/>
-<property name="ProjectIteration" value="8" type="ProjectIteration"/>
+<property name="ProjectIteration" value="9" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -29,21 +29,22 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="OpenProject" value="7" type="JavaHandler"/>
 <property name="RecustomizeCore" value="28" type="JavaHandler"/>
 <property name="ReportIPStatus" value="1" type="JavaHandler"/>
-<property name="RunBitgen" value="5" type="JavaHandler"/>
+<property name="RunBitgen" value="6" type="JavaHandler"/>
 <property name="RunImplementation" value="2" type="JavaHandler"/>
 <property name="RunSynthesis" value="2" type="JavaHandler"/>
 <property name="ShowView" value="6" type="JavaHandler"/>
 <property name="SimulationRun" value="4" type="JavaHandler"/>
-<property name="ViewTaskImplementation" value="2" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="3" type="JavaHandler"/>
 <property name="ViewTaskProjectManager" value="3" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
 <property name="AddRepositoryInfoDialog_OK" value="2" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="13" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="61" type="GuiHandlerData"/>
-<property name="BaseDialog_YES" value="3" type="GuiHandlerData"/>
-<property name="CmdMsgDialog_OK" value="4" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="63" type="GuiHandlerData"/>
+<property name="BaseDialog_YES" value="4" type="GuiHandlerData"/>
+<property name="CmdMsgDialog_OK" value="5" type="GuiHandlerData"/>
 <property name="CmdMsgDialog_OPEN_MESSAGES_VIEW" value="1" type="GuiHandlerData"/>
+<property name="ConfirmSaveTextEditsDialog_YES" value="3" type="GuiHandlerData"/>
 <property name="CopyIPHandler_DESTINATION_IP_LOCATION" value="1" type="GuiHandlerData"/>
 <property name="CoreAndInterfacesBaseTreeTablePanel_ADD_REPOSITORY" value="2" type="GuiHandlerData"/>
 <property name="CoreAndInterfacesBaseTreeTablePanel_REMOVE_FROM_PROJECT" value="1" type="GuiHandlerData"/>
@@ -52,9 +53,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="CustomizeCoreDialog_CHOOSE_IP_LOCATION" value="1" type="GuiHandlerData"/>
 <property name="CustomizeCoreDialog_IP_LOCATION" value="2" type="GuiHandlerData"/>
 <property name="FPGAChooser_FPGA_TABLE" value="2" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="353" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="355" type="GuiHandlerData"/>
 <property name="FileSetPanel_MESSAGES" value="1" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="30" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="31" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
 <property name="GettingStartedView_OPEN_PROJECT" value="2" type="GuiHandlerData"/>
 <property name="HPopupTitle_CLOSE" value="1" type="GuiHandlerData"/>
@@ -74,7 +75,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PACommandNames_OPEN_PROJECT" value="5" type="GuiHandlerData"/>
 <property name="PACommandNames_REPORT_IP_STATUS" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="4" type="GuiHandlerData"/>
-<property name="PAViews_CODE" value="19" type="GuiHandlerData"/>
+<property name="PAViews_CODE" value="27" type="GuiHandlerData"/>
 <property name="PAViews_IP_CATALOG" value="4" type="GuiHandlerData"/>
 <property name="PAViews_PROJECT_SUMMARY" value="4" type="GuiHandlerData"/>
 <property name="PlanAheadTab_REFRESH_IP_CATALOG" value="1" type="GuiHandlerData"/>

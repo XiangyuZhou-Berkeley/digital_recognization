@@ -33,12 +33,13 @@ module pre_recognize(
 wire Binary;
 wire [3:0]num;
 wire [6:0]digital;
-    
+//rgb二值化
 RGB2Binary RGB2Binary(
     //input clk,
     .RGB_Data(RGB_Raw),
     .Binary(Binary)
     );
+//数字识别
 recognize recog1(
         .pclk(pclk),
         .VtcHCnt(Set_X),
@@ -47,6 +48,7 @@ recognize recog1(
         .num(num),
         .digital(digital)
         );
+//采用数码管的显示思路，对屏幕不同区域的像素点通过使能信号进行批量控制，达到类似数码管的效果
  Num_Display Num_Display1(
             //.clk(pclk),
             .num(digital),
@@ -56,6 +58,7 @@ recognize recog1(
             .Binary(Binary),
             .RGB_Data(RGB_Data)
             );
+ //当没有显示显示屏时可以通过LED读数，由于num是4位，所以用了4个LED，两个普通的为最小两位，两个Rgb led,为较大两位
  Rgb_Led Rgb_led1(
              .clk_100MHz(pclk),
              .num(num),

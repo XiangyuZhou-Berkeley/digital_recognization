@@ -61,12 +61,110 @@ proc step_failed { step } {
 }
 
 
+start_step init_design
+set ACTIVE_STEP init_design
+set rc [catch {
+  create_msg_db init_design.pb
+  create_project -in_memory -part xc7s15ftgb196-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir D:/xilinix_lab/number_recognize/number_recognize.cache/wt [current_project]
+  set_property parent.project_path D:/xilinix_lab/number_recognize/number_recognize.xpr [current_project]
+  set_property ip_repo_paths D:/xilinix_lab/IP_Core [current_project]
+  update_ip_catalog
+  set_property ip_output_repo D:/xilinix_lab/number_recognize/number_recognize.cache/ip [current_project]
+  set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  add_files -quiet D:/xilinix_lab/number_recognize/number_recognize.runs/synth_1/main.dcp
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/rgb2dvi_0/rgb2dvi_0.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/clk_wiz_1_1/clk_wiz_1.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/csi2_d_phy_rx_0/csi2_d_phy_rx_0.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/AXIS_Data_RAM/AXIS_Data_RAM.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/RAM_Line/RAM_Line.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/csi_to_axis_0/csi_to_axis_0.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Clk_Division_0/Clk_Division_0.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/Driver_SK6805_0/Driver_SK6805_0.xci
+  read_ip -quiet D:/xilinix_lab/number_recognize/number_recognize.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_xdc D:/xilinix_lab/number_recognize/number_recognize.srcs/constrs_1/new/system.xdc
+  link_design -top main -part xc7s15ftgb196-1
+  close_msg_db -file init_design.pb
+} RESULT]
+if {$rc} {
+  step_failed init_design
+  return -code error $RESULT
+} else {
+  end_step init_design
+  unset ACTIVE_STEP 
+}
+
+start_step opt_design
+set ACTIVE_STEP opt_design
+set rc [catch {
+  create_msg_db opt_design.pb
+  opt_design 
+  write_checkpoint -force main_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file main_drc_opted.rpt -pb main_drc_opted.pb -rpx main_drc_opted.rpx"
+  close_msg_db -file opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed opt_design
+  return -code error $RESULT
+} else {
+  end_step opt_design
+  unset ACTIVE_STEP 
+}
+
+start_step place_design
+set ACTIVE_STEP place_design
+set rc [catch {
+  create_msg_db place_design.pb
+  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
+    implement_debug_core 
+  } 
+  place_design 
+  write_checkpoint -force main_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file main_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file main_utilization_placed.rpt -pb main_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file main_control_sets_placed.rpt"
+  close_msg_db -file place_design.pb
+} RESULT]
+if {$rc} {
+  step_failed place_design
+  return -code error $RESULT
+} else {
+  end_step place_design
+  unset ACTIVE_STEP 
+}
+
+start_step route_design
+set ACTIVE_STEP route_design
+set rc [catch {
+  create_msg_db route_design.pb
+  route_design 
+  write_checkpoint -force main_routed.dcp
+  create_report "impl_1_route_report_drc_0" "report_drc -file main_drc_routed.rpt -pb main_drc_routed.pb -rpx main_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file main_route_status.rpt -pb main_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file main_timing_summary_routed.rpt -pb main_timing_summary_routed.pb -rpx main_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file main_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file main_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file main_bus_skew_routed.rpt -pb main_bus_skew_routed.pb -rpx main_bus_skew_routed.rpx"
+  close_msg_db -file route_design.pb
+} RESULT]
+if {$rc} {
+  write_checkpoint -force main_routed_error.dcp
+  step_failed route_design
+  return -code error $RESULT
+} else {
+  end_step route_design
+  unset ACTIVE_STEP 
+}
+
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  open_checkpoint main_routed.dcp
-  set_property webtalk.parent_dir D:/xilinix_lab/number_recognize/number_recognize.cache/wt [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force main.mmi }
   write_bitstream -force main.bit 
