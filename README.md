@@ -2,4 +2,4 @@
 
 This is a project about using fpga to recognize numbers.
 
-I will supplend it with more details before 12.5
+In this project we use number templete method to recognize numbers.
